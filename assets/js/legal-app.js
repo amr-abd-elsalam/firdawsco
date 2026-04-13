@@ -31,10 +31,6 @@ var LegalApp = (function () {
 
   /* ── Helpers ── */
 
-  function clearChildren(el) {
-    while (el && el.firstChild) el.removeChild(el.firstChild);
-  }
-
   function getPageData() {
     return isTerms ? META.legalPage.terms : META.legalPage.privacy;
   }
@@ -287,16 +283,6 @@ var LegalApp = (function () {
   }
 
   /* ══════════════════════════════════════════
-     Builder: Footer Contact Text
-  ══════════════════════════════════════════ */
-
-  function buildFooterContactText() {
-    SP.setTextById('footer-phone-link', '+20 1010018811');
-    SP.setTextById('footer-whatsapp-link', '+20 1209500578');
-    SP.setTextById('footer-email-link', 'info@firdawsco.com');
-  }
-
-  /* ══════════════════════════════════════════
      Builder: SEO Injection
   ══════════════════════════════════════════ */
 
@@ -347,7 +333,6 @@ var LegalApp = (function () {
     buildTocNav();
     buildIntroNote();
     buildSections();
-    buildFooterContactText();
     injectSEO();
   }
 
@@ -375,7 +360,6 @@ var LegalApp = (function () {
     buildTocNav();
     buildIntroNote();
     buildSections();
-    buildFooterContactText();
     injectSEO();
 
     /* Wire TOC smooth scroll — once only */

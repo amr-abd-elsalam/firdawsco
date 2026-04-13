@@ -1016,6 +1016,8 @@ var COMPANY_DATA = (function () {
     logoPath: '/assets/img/logo.webp',
     legalLastUpdated: '2026-04-01',
     defaultLang: 'en',
+    shortName: { en: 'Firdaws', ar: 'الفردوس' },
+    themeColor: '#16a34a',
     commercialRegister: '57874',
     taxId: '841-604-777',
 
@@ -1056,7 +1058,10 @@ var COMPANY_DATA = (function () {
       filter:    { en: 'Filter by Category',   ar: 'تصفية حسب الفئة' },
       all:       { en: 'All Products',         ar: 'كل المنتجات' },
       inSeason:  { en: 'In Season',            ar: 'في الموسم' },
-      offSeason: { en: 'Off Season',           ar: 'خارج الموسم' }
+      offSeason: { en: 'Off Season',           ar: 'خارج الموسم' },
+      productsLabel: { en: 'products', ar: 'منتج' },
+      viewDetails: { en: 'View Details', ar: 'عرض التفاصيل' },
+      noResults: { en: 'No products match this filter.', ar: 'لا توجد منتجات تطابق هذا الفلتر.' }
     },
 
     seasonCalendar: {
@@ -1066,12 +1071,17 @@ var COMPANY_DATA = (function () {
       months: {
         en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         ar: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر']
-      }
+      },
+      yearRound: { en: 'Year-round', ar: 'طوال السنة' }
     },
 
     certificationsSection: {
       title:    { en: 'Quality Certifications',  ar: 'شهادات الجودة' },
       subtitle: { en: 'Internationally recognized certifications ensuring the highest food safety and quality standards.', ar: 'شهادات معترف بها دولياً تضمن أعلى معايير سلامة وجودة الغذاء.' }
+    },
+
+    faqSection: {
+      title: { en: 'Frequently Asked Questions', ar: 'الأسئلة الشائعة' }
     },
 
     ctaSection: {
@@ -1136,13 +1146,20 @@ var COMPANY_DATA = (function () {
         country: { en: 'Country',            ar: 'الدولة' },
         product: { en: 'Product of Interest', ar: 'المنتج المطلوب' },
         message: { en: 'Message',            ar: 'الرسالة' },
-        submit:  { en: 'Send Message',       ar: 'إرسال الرسالة' }
+        submit:  { en: 'Send Message',       ar: 'إرسال الرسالة' },
+        placeholder: { en: 'Select a product\u2026', ar: '\u0627\u062E\u062A\u0631 \u0645\u0646\u062A\u062C\u0627\u064B\u2026' },
+        validation: { en: 'Please enter your name and email.', ar: '\u064A\u0631\u062C\u0649 \u0625\u062F\u062E\u0627\u0644 \u0627\u0644\u0627\u0633\u0645 \u0648\u0627\u0644\u0628\u0631\u064A\u062F \u0627\u0644\u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A.' },
+        success: { en: 'Your message has been sent to WhatsApp.', ar: '\u062A\u0645 \u0625\u0631\u0633\u0627\u0644 \u0631\u0633\u0627\u0644\u062A\u0643 \u0639\u0628\u0631 \u0648\u0627\u062A\u0633\u0627\u0628.' },
+        redirecting: { en: 'Redirecting to WhatsApp\u2026', ar: '\u062C\u0627\u0631\u064D \u0627\u0644\u062A\u0648\u062C\u064A\u0647 \u0625\u0644\u0649 \u0648\u0627\u062A\u0633\u0627\u0628\u2026' },
+        formHeading: { en: 'Contact Form', ar: '\u0646\u0645\u0648\u0630\u062C \u0627\u0644\u062A\u0648\u0627\u0635\u0644' }
       },
       info: {
         address:  { en: 'Address',   ar: 'العنوان' },
         phone:    { en: 'Phone',     ar: 'الهاتف' },
         whatsapp: { en: 'WhatsApp',  ar: 'واتساب' },
-        email:    { en: 'Email',     ar: 'البريد الإلكتروني' }
+        email:    { en: 'Email',     ar: 'البريد الإلكتروني' },
+        register: { en: 'Commercial Register', ar: '\u0627\u0644\u0633\u062C\u0644 \u0627\u0644\u062A\u062C\u0627\u0631\u064A' },
+        tax: { en: 'Tax ID', ar: '\u0627\u0644\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u0636\u0631\u064A\u0628\u064A\u0629' }
       }
     },
 
@@ -1167,6 +1184,11 @@ var COMPANY_DATA = (function () {
     langSwitch: {
       en: 'العربية',
       ar: 'English'
+    },
+
+    langAnnounce: {
+      en: 'Switched to English',
+      ar: 'تم التبديل إلى العربية'
     },
 
     notFound: {

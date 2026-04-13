@@ -23,25 +23,9 @@ var ContactApp = (function () {
 
   var META = DATA.META;
 
-  /* ── Local Strings (not in META) ── */
-
-  var PRODUCT_PLACEHOLDER = { en: 'Select a product\u2026', ar: '\u0627\u062E\u062A\u0631 \u0645\u0646\u062A\u062C\u0627\u064B\u2026' };
-  var VALIDATION_MSG      = { en: 'Please enter your name and email.', ar: '\u064A\u0631\u062C\u0649 \u0625\u062F\u062E\u0627\u0644 \u0627\u0644\u0627\u0633\u0645 \u0648\u0627\u0644\u0628\u0631\u064A\u062F \u0627\u0644\u0625\u0644\u0643\u062A\u0631\u0648\u0646\u064A.' };
-  var SUCCESS_DISPLAY     = { en: 'Your message has been sent to WhatsApp.', ar: '\u062A\u0645 \u0625\u0631\u0633\u0627\u0644 \u0631\u0633\u0627\u0644\u062A\u0643 \u0639\u0628\u0631 \u0648\u0627\u062A\u0633\u0627\u0628.' };
-  var REDIRECT_MSG        = { en: 'Redirecting to WhatsApp\u2026', ar: '\u062C\u0627\u0631\u064D \u0627\u0644\u062A\u0648\u062C\u064A\u0647 \u0625\u0644\u0649 \u0648\u0627\u062A\u0633\u0627\u0628\u2026' };
-  var REGISTER_LABEL      = { en: 'Commercial Register', ar: '\u0627\u0644\u0633\u062C\u0644 \u0627\u0644\u062A\u062C\u0627\u0631\u064A' };
-  var TAX_LABEL           = { en: 'Tax ID', ar: '\u0627\u0644\u0628\u0637\u0627\u0642\u0629 \u0627\u0644\u0636\u0631\u064A\u0628\u064A\u0629' };
-  var FORM_HEADING_HIDDEN = { en: 'Contact Form', ar: '\u0646\u0645\u0648\u0630\u062C \u0627\u0644\u062A\u0648\u0627\u0635\u0644' };
-
   /* ── State ── */
 
   var _formWired = false;
-
-  /* ── Helper: Clear container children ── */
-
-  function clearChildren(el) {
-    while (el && el.firstChild) el.removeChild(el.firstChild);
-  }
 
   /* ══════════════════════════════════════════
      Builder 1: Breadcrumb
@@ -192,18 +176,7 @@ var ContactApp = (function () {
   }
 
   /* ══════════════════════════════════════════
-     Builder 6: Footer Contact Text
-  ══════════════════════════════════════════ */
-
-  function buildFooterContactText() {
-    /* shared-page.js sets href only — we set the visible text */
-    SP.setTextById('footer-phone-link', '+20 1010018811');
-    SP.setTextById('footer-whatsapp-link', '+20 1209500578');
-    SP.setTextById('footer-email-link', 'info@firdawsco.com');
-  }
-
-  /* ══════════════════════════════════════════
-     Builder 7: Form Submit Handler (wired once)
+     Builder 6: Form Submit Handler (wired once)
   ══════════════════════════════════════════ */
 
   function initFormHandler() {
@@ -323,7 +296,6 @@ var ContactApp = (function () {
     buildFormLabels();
     buildContactInfo();
     buildCTA();
-    buildFooterContactText();
     injectSEO();
 
     /* Note: initFormHandler() NOT called here — only in init() */
@@ -355,7 +327,6 @@ var ContactApp = (function () {
     buildFormLabels();
     buildContactInfo();
     buildCTA();
-    buildFooterContactText();
     injectSEO();
 
     /* Wire form submit — once only */

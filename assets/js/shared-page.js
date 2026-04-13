@@ -147,7 +147,7 @@ var SharedPage = (function () {
     }
 
     /* (g) Announce to screen readers */
-    U.announce(lang === 'ar' ? 'تم التبديل إلى العربية' : 'Switched to English');
+    U.announce(U.t(META.langAnnounce, lang));
   }
 
   /* ── Footer Builder (bilingual) ── */
@@ -183,6 +183,9 @@ var SharedPage = (function () {
     /* Category links — rebuild from data */
     buildFooterCategories();
 
+    /* Contact text — display text for phone, whatsapp, email */
+    buildFooterContactText();
+
     /* Legal links */
     var privacyLink = document.querySelector('[data-legal="privacy"]');
     var termsLink = document.querySelector('[data-legal="terms"]');
@@ -214,6 +217,18 @@ var SharedPage = (function () {
     });
 
     container.appendChild(frag);
+  }
+
+  /* ── Footer Contact Text ── */
+
+  function _formatPhoneDisplay(intlNumber) {
+    return '+' + intlNumber.substring(0, 2) + ' ' + intlNumber.substring(2);
+  }
+
+  function buildFooterContactText() {
+    setTextById('footer-phone-link', _formatPhoneDisplay(DATA.PHONE_NUMBER));
+    setTextById('footer-whatsapp-link', _formatPhoneDisplay(DATA.WHATSAPP_NUMBER));
+    setTextById('footer-email-link', META.supportEmail);
   }
 
   /* ── WhatsApp Float ── */
@@ -445,6 +460,7 @@ var SharedPage = (function () {
     buildNavLinks: buildNavLinks,
     buildFooter: buildFooter,
     buildFooterCategories: buildFooterCategories,
+    buildFooterContactText: buildFooterContactText,
     buildWhatsAppFloat: buildWhatsAppFloat,
     buildBackToTop: buildBackToTop,
     buildLangSwitcher: buildLangSwitcher,

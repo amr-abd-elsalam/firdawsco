@@ -31,20 +31,10 @@ var NotFoundApp = (function () {
   }
 
   /* ══════════════════════════════════════════
-     Builder: Footer Contact Text
-  ══════════════════════════════════════════ */
-  function buildFooterContactText() {
-    SP.setTextById('footer-phone-link', '+20 1010018811');
-    SP.setTextById('footer-whatsapp-link', '+20 1209500578');
-    SP.setTextById('footer-email-link', 'info@firdawsco.com');
-  }
-
-  /* ══════════════════════════════════════════
      Refresh Page (called by switchLanguage)
   ══════════════════════════════════════════ */
   function refreshPage(lang) {
     buildContent();
-    buildFooterContactText();
   }
 
   /* ══════════════════════════════════════════
@@ -62,7 +52,6 @@ var NotFoundApp = (function () {
 
     /* Build page content */
     buildContent();
-    buildFooterContactText();
   }
 
   /* ── DOMContentLoaded ── */

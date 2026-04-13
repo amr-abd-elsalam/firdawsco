@@ -29,7 +29,6 @@ var ProductDetailsApp = (function () {
   var DETAILS_BASE  = './?id=';
   var IMG_PREFIX    = '../../';
   var RELATED_MAX   = 4;
-  var VIEW_DETAILS  = { en: 'View Details', ar: 'عرض التفاصيل' };
 
   /* ── Section IDs for show/hide ── */
 
@@ -42,10 +41,6 @@ var ProductDetailsApp = (function () {
   ];
 
   /* ── Helpers ── */
-
-  function clearChildren(el) {
-    while (el && el.firstChild) el.removeChild(el.firstChild);
-  }
 
   /**
    * Fix image path from root-relative to products/details/ relative.
@@ -404,7 +399,7 @@ var ProductDetailsApp = (function () {
         U.el('a', {
           href:        U.sanitizeUrl(DETAILS_BASE + encodeURIComponent(rel.id)),
           className:   'btn btn-sm fw-btn-outline',
-          textContent: U.t(VIEW_DETAILS, lang)
+          textContent: U.t(META.productsSection.viewDetails, lang)
         })
       );
       body.appendChild(footer);
@@ -478,16 +473,6 @@ var ProductDetailsApp = (function () {
     SP.setTextById('pd-cta-text', U.t(META.ctaSection.text, lang));
     var btnEl = document.getElementById('pd-cta-btn');
     if (btnEl) btnEl.textContent = U.t(META.ctaSection.btn, lang);
-  }
-
-  /* ══════════════════════════════════════════
-     Builder: Footer Contact Text
-  ══════════════════════════════════════════ */
-
-  function buildFooterContactText() {
-    SP.setTextById('footer-phone-link', '+20 1010018811');
-    SP.setTextById('footer-whatsapp-link', '+20 1209500578');
-    SP.setTextById('footer-email-link', 'info@firdawsco.com');
   }
 
   /* ══════════════════════════════════════════
@@ -575,7 +560,6 @@ var ProductDetailsApp = (function () {
     buildRelatedProducts(product);
     buildStickyCTA(product);
     buildCTA();
-    buildFooterContactText();
     injectSEO(product, category);
   }
 
@@ -601,7 +585,6 @@ var ProductDetailsApp = (function () {
 
     if (!product) {
       buildNotFound();
-      buildFooterContactText();
       return;
     }
 
@@ -616,7 +599,6 @@ var ProductDetailsApp = (function () {
     buildRelatedProducts(product);
     buildStickyCTA(product);
     buildCTA();
-    buildFooterContactText();
   }
 
   /* ── DOMContentLoaded ── */

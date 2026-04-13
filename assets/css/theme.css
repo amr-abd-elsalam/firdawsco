@@ -2502,3 +2502,18 @@ a:hover {
     break-after: avoid;
   }
 }
+
+/* ═══════════════════════════════════════════
+   A.50 — 404 Not Found Page
+   ═══════════════════════════════════════════ */
+
+.fw-not-found-section {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+.fw-not-found-icon {
+  font-size: 4rem;
+  color: var(--fw-gray-300);
+}

@@ -28,12 +28,6 @@ var AboutApp = (function () {
 
   var VALUE_ICONS = ['bi-award', 'bi-clock-history', 'bi-recycle', 'bi-globe-americas'];
 
-  /* ── Helper: Clear container children ── */
-
-  function clearChildren(el) {
-    while (el && el.firstChild) el.removeChild(el.firstChild);
-  }
-
   /* ══════════════════════════════════════════
      Builder 1: Breadcrumb
   ══════════════════════════════════════════ */
@@ -215,18 +209,7 @@ var AboutApp = (function () {
   }
 
   /* ══════════════════════════════════════════
-     Builder 9: Footer Contact Text
-  ══════════════════════════════════════════ */
-
-  function buildFooterContactText() {
-    /* shared-page.js sets href only — we set the visible text */
-    SP.setTextById('footer-phone-link', '+20 1010018811');
-    SP.setTextById('footer-whatsapp-link', '+20 1209500578');
-    SP.setTextById('footer-email-link', 'info@firdawsco.com');
-  }
-
-  /* ══════════════════════════════════════════
-     Builder 10: SEO Injection
+     Builder 9: SEO Injection
   ══════════════════════════════════════════ */
 
   function injectSEO() {
@@ -267,7 +250,6 @@ var AboutApp = (function () {
     buildFacilities();
     buildCertifications();
     buildCTA();
-    buildFooterContactText();
     injectSEO();
   }
 
@@ -297,7 +279,6 @@ var AboutApp = (function () {
     buildFacilities();
     buildCertifications();
     buildCTA();
-    buildFooterContactText();
     injectSEO();
   }
 

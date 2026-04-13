@@ -27,29 +27,13 @@ var ProductsApp = (function () {
 
   var DETAILS_BASE = './details/?id=';
   var IMG_PREFIX   = '../';
-  var VIEW_DETAILS = { en: 'View Details', ar: 'عرض التفاصيل' };
-  var NO_RESULTS   = { en: 'No products match this filter.', ar: 'لا توجد منتجات تطابق هذا الفلتر.' };
-  var PRODUCTS_LABEL = { en: 'products', ar: 'منتج' };
 
   /* ── State ── */
 
   var _currentCategory = 'all';
   var _filterWired = false;
 
-  /* ── Helper: Count products per category ── */
-  function countProductsInCategory(categoryId) {
-    var count = 0;
-    for (var i = 0; i < DATA.products.length; i++) {
-      if (DATA.products[i].categoryId === categoryId) count++;
-    }
-    return count;
-  }
-
   /* ── Helpers ── */
-
-  function clearChildren(el) {
-    while (el && el.firstChild) el.removeChild(el.firstChild);
-  }
 
   /**
    * Fix image path from root-relative to products/ relative.
@@ -146,7 +130,7 @@ var ProductsApp = (function () {
     /* Category buttons with count badges */
     DATA.categories.forEach(function (cat) {
       var catName = cat[lang] ? cat[lang].name : cat.en.name;
-      var count = countProductsInCategory(cat.id);
+      var count = U.countProductsInCategory(cat.id);
       var btn = U.el('button', {
         type: 'button',
         className: 'fw-filter-btn' + (_currentCategory === cat.id ? ' active' : ''),
@@ -230,7 +214,7 @@ var ProductsApp = (function () {
       U.el('a', {
         href:        U.sanitizeUrl(DETAILS_BASE + encodeURIComponent(product.id)),
         className:   'btn btn-sm fw-btn-outline',
-        textContent: U.t(VIEW_DETAILS, lang)
+        textContent: U.t(META.productsSection.viewDetails, lang)
       })
     );
     body.appendChild(footer);
@@ -264,7 +248,7 @@ var ProductsApp = (function () {
     if (filtered.length === 0) {
       container.classList.add('d-none');
       if (emptyEl) emptyEl.classList.remove('d-none');
-      if (emptyText) emptyText.textContent = U.t(NO_RESULTS, lang);
+      if (emptyText) emptyText.textContent = U.t(META.productsSection.noResults, lang);
       return;
     }
 
@@ -277,7 +261,7 @@ var ProductsApp = (function () {
     }
     container.appendChild(frag);
 
-    U.announce(filtered.length + ' ' + U.t(PRODUCTS_LABEL, lang));
+    U.announce(filtered.length + ' ' + U.t(META.productsSection.productsLabel, lang));
   }
 
   /* ══════════════════════════════════════════
@@ -307,16 +291,6 @@ var ProductsApp = (function () {
     SP.setTextById('products-cta-text', U.t(META.ctaSection.text, lang));
     var btnEl = document.getElementById('products-cta-btn');
     if (btnEl) btnEl.textContent = U.t(META.ctaSection.btn, lang);
-  }
-
-  /* ══════════════════════════════════════════
-     Builder: Footer Contact Text
-  ══════════════════════════════════════════ */
-
-  function buildFooterContactText() {
-    SP.setTextById('footer-phone-link', '+20 1010018811');
-    SP.setTextById('footer-whatsapp-link', '+20 1209500578');
-    SP.setTextById('footer-email-link', 'info@firdawsco.com');
   }
 
   /* ══════════════════════════════════════════
@@ -355,7 +329,6 @@ var ProductsApp = (function () {
     buildFilterBar();
     buildProductsGrid();
     buildCTA();
-    buildFooterContactText();
     injectSEO();
   }
 
@@ -385,7 +358,6 @@ var ProductsApp = (function () {
     buildFilterBar();
     buildProductsGrid();
     buildCTA();
-    buildFooterContactText();
   }
 
   /* ── DOMContentLoaded ── */

@@ -68,6 +68,24 @@ var Utils = (function () {
     return el('a', Object.assign({}, attrs || {}, { href: safe || '#' }), [text]);
   }
 
+  /* ── Clear Children ── */
+
+  function clearChildren(node) {
+    while (node && node.firstChild) node.removeChild(node.firstChild);
+  }
+
+  /* ── Count Products In Category ── */
+
+  function countProductsInCategory(categoryId) {
+    var DATA = window.COMPANY_DATA;
+    if (!DATA || !DATA.products) return 0;
+    var count = 0;
+    for (var i = 0; i < DATA.products.length; i++) {
+      if (DATA.products[i].categoryId === categoryId) count++;
+    }
+    return count;
+  }
+
   /* ── Toast ── */
 
   var _toastHistory = new Map();
@@ -196,7 +214,8 @@ var Utils = (function () {
     var from = product.season.from;
     var to = product.season.to;
     if (from === 1 && to === 12) {
-      return l === 'ar' ? 'طوال السنة' : 'Year-round';
+      var yr = DATA.META.seasonCalendar.yearRound;
+      return yr ? (yr[l] || yr.en || 'Year-round') : 'Year-round';
     }
     return months[from - 1] + ' — ' + months[to - 1];
   }
@@ -229,6 +248,8 @@ var Utils = (function () {
     sanitizeUrl: sanitizeUrl,
     el: el,
     buildSafeLink: buildSafeLink,
+    clearChildren: clearChildren,
+    countProductsInCategory: countProductsInCategory,
     showToast: showToast,
     qs: qs,
     qsa: qsa,

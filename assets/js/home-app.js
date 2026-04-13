@@ -28,16 +28,6 @@ var HomeApp = (function () {
   var PRODUCTS_BASE = './products/';
   var DETAILS_BASE  = './products/details/?id=';
 
-  /* Local strings not in META */
-  var FAQ_TITLE = { en: 'Frequently Asked Questions', ar: 'الأسئلة الشائعة' };
-  var PRODUCTS_LABEL = { en: 'products', ar: 'منتج' };
-  var VIEW_DETAILS = { en: 'View Details', ar: 'عرض التفاصيل' };
-
-  /* ── Helper: Clear container children ── */
-
-  function clearChildren(el) {
-    while (el && el.firstChild) el.removeChild(el.firstChild);
-  }
 
   /* ── Helper: Check if month (1-12) is in product season ── */
 
@@ -47,16 +37,6 @@ var HomeApp = (function () {
     if (from === 1 && to === 12) return true;
     if (from <= to) return month >= from && month <= to;
     return month >= from || month <= to;
-  }
-
-  /* ── Helper: Count products per category ── */
-
-  function countProductsInCategory(categoryId) {
-    var count = 0;
-    for (var i = 0; i < DATA.products.length; i++) {
-      if (DATA.products[i].categoryId === categoryId) count++;
-    }
-    return count;
   }
 
   /* ══════════════════════════════════════════
@@ -178,7 +158,7 @@ var HomeApp = (function () {
     var frag = document.createDocumentFragment();
 
     DATA.categories.forEach(function (cat) {
-      var count = countProductsInCategory(cat.id);
+      var count = U.countProductsInCategory(cat.id);
       var catData = cat[lang] || cat.en;
 
       var col = U.el('div', { className: 'col-12 col-sm-6 col-md-4' });
@@ -221,7 +201,7 @@ var HomeApp = (function () {
         U.el('p', { textContent: catData.desc })
       );
       body.appendChild(
-        U.el('span', { className: 'fw-cat-count', textContent: count + ' ' + U.t(PRODUCTS_LABEL, lang) })
+        U.el('span', { className: 'fw-cat-count', textContent: count + ' ' + U.t(META.productsSection.productsLabel, lang) })
       );
 
       card.appendChild(body);
@@ -308,7 +288,7 @@ var HomeApp = (function () {
         U.el('a', {
           href:        U.sanitizeUrl(DETAILS_BASE + encodeURIComponent(product.id)),
           className:   'btn btn-sm fw-btn-outline',
-          textContent: U.t(VIEW_DETAILS, lang)
+          textContent: U.t(META.productsSection.viewDetails, lang)
         })
       );
       body.appendChild(footer);
@@ -519,7 +499,7 @@ var HomeApp = (function () {
   function buildFAQ() {
     var lang = U.getLang();
 
-    SP.setTextById('faq-heading', U.t(FAQ_TITLE, lang));
+    SP.setTextById('faq-heading', U.t(META.faqSection.title, lang));
 
     var accordion = document.getElementById('faq-accordion');
     if (!accordion) return;
@@ -576,18 +556,7 @@ var HomeApp = (function () {
   }
 
   /* ══════════════════════════════════════════
-     Builder 9: Footer Contact Text
-  ══════════════════════════════════════════ */
-
-  function buildFooterContactText() {
-    /* shared-page.js sets href only — we set the visible text */
-    SP.setTextById('footer-phone-link', '+20 1010018811');
-    SP.setTextById('footer-whatsapp-link', '+20 1209500578');
-    SP.setTextById('footer-email-link', 'info@firdawsco.com');
-  }
-
-  /* ══════════════════════════════════════════
-     Builder 10: SEO Injection
+     Builder 9: SEO Injection
   ══════════════════════════════════════════ */
 
   function injectSEO() {
@@ -617,7 +586,6 @@ var HomeApp = (function () {
     buildCertifications();
     buildCTA();
     buildFAQ();
-    buildFooterContactText();
     injectSEO();
   }
 
@@ -649,7 +617,6 @@ var HomeApp = (function () {
     buildCertifications();
     buildCTA();
     buildFAQ();
-    buildFooterContactText();
 
     /* Inject FAQ JSON-LD */
     SP.injectFaqSchema();
