@@ -139,7 +139,7 @@ var ProductDetailsApp = (function () {
     if (!container) return;
 
     var lang = U.getLang();
-    clearChildren(container);
+    U.clearChildren(container);
 
     var frag = document.createDocumentFragment();
 
@@ -214,7 +214,7 @@ var ProductDetailsApp = (function () {
     SP.setTextById('pd-varieties-title', U.t(META.productDetails.varieties, lang));
     var varietiesList = document.getElementById('pd-varieties-list');
     if (varietiesList) {
-      clearChildren(varietiesList);
+      U.clearChildren(varietiesList);
       var varieties = prodData.varieties || [];
       var frag = document.createDocumentFragment();
       for (var i = 0; i < varieties.length; i++) {
@@ -244,7 +244,7 @@ var ProductDetailsApp = (function () {
     var tbody = document.getElementById('pd-specs-body');
     if (!tbody) return;
 
-    clearChildren(tbody);
+    U.clearChildren(tbody);
 
     var rows = [
       { label: META.productDetails.caliber, value: prodData.specs.caliber },
@@ -280,7 +280,7 @@ var ProductDetailsApp = (function () {
     var list = document.getElementById('pd-packaging-list');
     if (!list) return;
 
-    clearChildren(list);
+    U.clearChildren(list);
 
     var options = product.packagingOptions || [];
     var frag = document.createDocumentFragment();
@@ -303,7 +303,7 @@ var ProductDetailsApp = (function () {
     var grid = document.getElementById('pd-certs-grid');
     if (!grid) return;
 
-    clearChildren(grid);
+    U.clearChildren(grid);
 
     var certs = getProductCerts(product);
     var frag = document.createDocumentFragment();
@@ -354,7 +354,7 @@ var ProductDetailsApp = (function () {
     var grid = document.getElementById('pd-related-grid');
     if (!grid) return;
 
-    clearChildren(grid);
+    U.clearChildren(grid);
 
     var related = getRelatedProducts(product);
     var frag = document.createDocumentFragment();
@@ -426,7 +426,7 @@ var ProductDetailsApp = (function () {
     if (!container) return;
 
     var lang = U.getLang();
-    clearChildren(container);
+    U.clearChildren(container);
 
     /* Build WhatsApp button */
     var waUrl = SP.buildProductWhatsAppUrl(product.en.name);

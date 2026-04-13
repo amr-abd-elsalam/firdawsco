@@ -37,7 +37,7 @@ var AboutApp = (function () {
     if (!container) return;
 
     var lang = U.getLang();
-    clearChildren(container);
+    U.clearChildren(container);
 
     var frag = document.createDocumentFragment();
 
@@ -100,7 +100,7 @@ var AboutApp = (function () {
     var grid = document.getElementById('about-values-grid');
     if (!grid) return;
 
-    clearChildren(grid);
+    U.clearChildren(grid);
 
     var items = META.aboutPage.values.items;
     var frag = document.createDocumentFragment();
@@ -157,7 +157,7 @@ var AboutApp = (function () {
     var grid = document.getElementById('about-certs-grid');
     if (!grid) return;
 
-    clearChildren(grid);
+    U.clearChildren(grid);
 
     var frag = document.createDocumentFragment();
 

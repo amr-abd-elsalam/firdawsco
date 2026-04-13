@@ -75,7 +75,7 @@ var HomeApp = (function () {
     if (!META.statsBar || !META.statsBar.items) return;
 
     var lang = U.getLang();
-    clearChildren(grid);
+    U.clearChildren(grid);
 
     var frag = document.createDocumentFragment();
 
@@ -124,7 +124,7 @@ var HomeApp = (function () {
     var certsRow = document.getElementById('about-certs-row');
     if (!certsRow) return;
 
-    clearChildren(certsRow);
+    U.clearChildren(certsRow);
 
     var frag = document.createDocumentFragment();
     DATA.certifications.forEach(function (cert) {
@@ -153,7 +153,7 @@ var HomeApp = (function () {
 
     var grid = document.getElementById('categories-grid');
     if (!grid) return;
-    clearChildren(grid);
+    U.clearChildren(grid);
 
     var frag = document.createDocumentFragment();
 
@@ -224,7 +224,7 @@ var HomeApp = (function () {
     var grid = document.getElementById('featured-grid');
     if (!grid) return;
 
-    clearChildren(grid);
+    U.clearChildren(grid);
 
     /* Filter in-season products */
     var featured = DATA.products.filter(function (p) {
@@ -320,7 +320,7 @@ var HomeApp = (function () {
     /* ── thead ── */
     var thead = document.getElementById('calendar-thead');
     if (thead) {
-      clearChildren(thead);
+      U.clearChildren(thead);
 
       var headerRow = U.el('tr');
 
@@ -343,7 +343,7 @@ var HomeApp = (function () {
     var tbody = document.getElementById('calendar-tbody');
     if (!tbody) return;
 
-    clearChildren(tbody);
+    U.clearChildren(tbody);
 
     var frag = document.createDocumentFragment();
 
@@ -383,7 +383,7 @@ var HomeApp = (function () {
     var lang = U.getLang();
     var monthNames = META.seasonCalendar.months[lang] || META.seasonCalendar.months.en;
 
-    clearChildren(container);
+    U.clearChildren(container);
 
     var frag = document.createDocumentFragment();
 
@@ -441,7 +441,7 @@ var HomeApp = (function () {
     var grid = document.getElementById('certs-grid');
     if (!grid) return;
 
-    clearChildren(grid);
+    U.clearChildren(grid);
 
     var frag = document.createDocumentFragment();
 
@@ -504,7 +504,7 @@ var HomeApp = (function () {
     var accordion = document.getElementById('faq-accordion');
     if (!accordion) return;
 
-    clearChildren(accordion);
+    U.clearChildren(accordion);
 
     var frag = document.createDocumentFragment();
 

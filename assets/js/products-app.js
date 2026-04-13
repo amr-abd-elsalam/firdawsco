@@ -69,7 +69,7 @@ var ProductsApp = (function () {
     if (!container) return;
 
     var lang = U.getLang();
-    clearChildren(container);
+    U.clearChildren(container);
 
     var frag = document.createDocumentFragment();
 
@@ -109,7 +109,7 @@ var ProductsApp = (function () {
     if (!container) return;
 
     var lang = U.getLang();
-    clearChildren(container);
+    U.clearChildren(container);
 
     var frag = document.createDocumentFragment();
 
@@ -235,7 +235,7 @@ var ProductsApp = (function () {
     if (!container) return;
 
     var lang = U.getLang();
-    clearChildren(container);
+    U.clearChildren(container);
 
     /* Filter products */
     var filtered = [];

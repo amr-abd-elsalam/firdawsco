@@ -36,7 +36,7 @@ var ContactApp = (function () {
     if (!container) return;
 
     var lang = U.getLang();
-    clearChildren(container);
+    U.clearChildren(container);
 
     var frag = document.createDocumentFragment();
 
@@ -74,7 +74,7 @@ var ContactApp = (function () {
   function buildFormLabels() {
     var lang = U.getLang();
 
-    SP.setTextById('contact-form-heading', U.t(FORM_HEADING_HIDDEN, lang));
+    SP.setTextById('contact-form-heading', U.t(META.contactPage.form.formHeading, lang));
     SP.setTextById('cf-name-label', U.t(META.contactPage.form.name, lang));
     SP.setTextById('cf-email-label', U.t(META.contactPage.form.email, lang));
     SP.setTextById('cf-company-label', U.t(META.contactPage.form.company, lang));
@@ -82,7 +82,7 @@ var ContactApp = (function () {
     SP.setTextById('cf-product-label', U.t(META.contactPage.form.product, lang));
     SP.setTextById('cf-message-label', U.t(META.contactPage.form.message, lang));
     SP.setTextById('cf-submit-text', U.t(META.contactPage.form.submit, lang));
-    SP.setTextById('cf-success-text', U.t(SUCCESS_DISPLAY, lang));
+    SP.setTextById('cf-success-text', U.t(META.contactPage.form.success, lang));
 
     /* Product dropdown — clear and rebuild */
     var select = document.getElementById('cf-product');
@@ -90,11 +90,11 @@ var ContactApp = (function () {
 
     /* Save current value to restore after rebuild */
     var currentVal = select.value;
-    clearChildren(select);
+    U.clearChildren(select);
 
     /* Placeholder option */
     select.appendChild(
-      U.el('option', { value: '', textContent: U.t(PRODUCT_PLACEHOLDER, lang) })
+      U.el('option', { value: '', textContent: U.t(META.contactPage.form.placeholder, lang) })
     );
 
     /* Product options — grouped by category using <optgroup> */
@@ -130,8 +130,8 @@ var ContactApp = (function () {
     SP.setTextById('ci-phone-label', U.t(META.contactPage.info.phone, lang));
     SP.setTextById('ci-whatsapp-label', U.t(META.contactPage.info.whatsapp, lang));
     SP.setTextById('ci-email-label', U.t(META.contactPage.info.email, lang));
-    SP.setTextById('ci-register-label', U.t(REGISTER_LABEL, lang));
-    SP.setTextById('ci-tax-label', U.t(TAX_LABEL, lang));
+    SP.setTextById('ci-register-label', U.t(META.contactPage.info.register, lang));
+    SP.setTextById('ci-tax-label', U.t(META.contactPage.info.tax, lang));
 
     /* Values */
     SP.setTextById('ci-address-text', U.t(DATA.ADDRESS, lang));
@@ -193,7 +193,7 @@ var ContactApp = (function () {
       var name  = document.getElementById('cf-name').value.trim();
       var email = document.getElementById('cf-email').value.trim();
       if (!name || !email) {
-        U.showToast(U.t(VALIDATION_MSG, lang), 'warning');
+        U.showToast(U.t(META.contactPage.form.validation, lang), 'warning');
         return;
       }
 
@@ -232,7 +232,7 @@ var ContactApp = (function () {
       var successEl = document.getElementById('cf-success');
       if (successEl) successEl.classList.remove('d-none');
 
-      U.announce(U.t(REDIRECT_MSG, lang));
+      U.announce(U.t(META.contactPage.form.redirecting, lang));
 
       /* Reset form after delay */
       setTimeout(function () { form.reset(); }, 1000);

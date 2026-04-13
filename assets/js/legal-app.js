@@ -67,7 +67,7 @@ var LegalApp = (function () {
 
     var lang = U.getLang();
     var pageData = getPageData();
-    clearChildren(container);
+    U.clearChildren(container);
 
     var frag = document.createDocumentFragment();
 
@@ -131,7 +131,7 @@ var LegalApp = (function () {
 
     var list = document.getElementById('legal-toc-list');
     if (!list) return;
-    clearChildren(list);
+    U.clearChildren(list);
 
     var frag = document.createDocumentFragment();
     var sections = pageData.sections;
@@ -237,7 +237,7 @@ var LegalApp = (function () {
 
     var lang = U.getLang();
     var pageData = getPageData();
-    clearChildren(container);
+    U.clearChildren(container);
 
     var frag = document.createDocumentFragment();
     var sections = pageData.sections;
