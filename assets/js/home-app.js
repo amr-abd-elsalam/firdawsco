@@ -168,50 +168,63 @@ var HomeApp = (function () {
 
   function buildCategoriesGrid() {
     var lang = U.getLang();
-
     SP.setTextById('categories-heading', U.t(META.productsSection.title, lang));
     SP.setTextById('categories-subtitle', U.t(META.productsSection.subtitle, lang));
 
     var grid = document.getElementById('categories-grid');
     if (!grid) return;
-
     clearChildren(grid);
 
     var frag = document.createDocumentFragment();
 
     DATA.categories.forEach(function (cat) {
-      var count   = countProductsInCategory(cat.id);
+      var count = countProductsInCategory(cat.id);
       var catData = cat[lang] || cat.en;
 
       var col = U.el('div', { className: 'col-12 col-sm-6 col-md-4' });
-
       var card = U.el('a', {
         className: 'fw-cat-card fw-cat-card--' + cat.color,
-        href:      U.sanitizeUrl(PRODUCTS_BASE + '?category=' + encodeURIComponent(cat.id))
+        href: U.sanitizeUrl(PRODUCTS_BASE + '?category=' + encodeURIComponent(cat.id))
       });
 
-      card.appendChild(
-        U.el('i', {
-          className: 'bi ' + cat.icon,
-          aria: { hidden: 'true' }
-        })
-      );
+      /* Image wrapper + badge overlay */
+      if (cat.image) {
+        var imgWrap = U.el('div', { className: 'fw-cat-card-img-wrap' });
 
-      card.appendChild(
+        imgWrap.appendChild(
+          U.el('img', {
+            className: 'fw-cat-card-img',
+            src: U.sanitizeUrl(cat.image),
+            alt: catData.name,
+            loading: 'lazy',
+            width: '600',
+            height: '400'
+          })
+        );
+
+        var badge = U.el('div', { className: 'fw-cat-card-badge' });
+        badge.appendChild(
+          U.el('i', { className: 'bi ' + cat.icon, aria: { hidden: 'true' } })
+        );
+        imgWrap.appendChild(badge);
+
+        card.appendChild(imgWrap);
+      }
+
+      /* Card body */
+      var body = U.el('div', { className: 'fw-cat-card-body' });
+
+      body.appendChild(
         U.el('h3', { textContent: catData.name })
       );
-
-      card.appendChild(
+      body.appendChild(
         U.el('p', { textContent: catData.desc })
       );
-
-      card.appendChild(
-        U.el('span', {
-          className:   'fw-cat-count',
-          textContent: count + ' ' + U.t(PRODUCTS_LABEL, lang)
-        })
+      body.appendChild(
+        U.el('span', { className: 'fw-cat-count', textContent: count + ' ' + U.t(PRODUCTS_LABEL, lang) })
       );
 
+      card.appendChild(body);
       col.appendChild(card);
       frag.appendChild(col);
     });

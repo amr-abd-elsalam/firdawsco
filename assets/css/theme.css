@@ -1868,3 +1868,233 @@ a:hover {
     transition: none;
   }
 }
+
+/* ═══════════════════════════════════════════
+   A.40 — Enhanced Category Cards (Image + Badge)
+   ═══════════════════════════════════════════ */
+
+/*
+ * Category cards now have:
+ *   .fw-cat-card-img-wrap  — overflow hidden container for image
+ *   .fw-cat-card-img       — the actual <img> with hover zoom
+ *   .fw-cat-card-badge     — icon badge overlay on top-right (RTL: top-left)
+ *   .fw-cat-card-body      — text content below image
+ *
+ * When category has no image, card falls back to original text-only layout.
+ */
+
+.fw-cat-card {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.fw-cat-card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--fw-radius-lg) var(--fw-radius-lg) 0 0;
+  flex-shrink: 0;
+}
+
+.fw-cat-card-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.fw-cat-card:hover .fw-cat-card-img {
+  transform: scale(1.06);
+}
+
+.fw-cat-card-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--fw-white);
+  box-shadow: var(--fw-shadow-md);
+  font-size: 1.15rem;
+  z-index: 1;
+}
+
+[dir="rtl"] .fw-cat-card-badge {
+  right: auto;
+  left: 0.75rem;
+}
+
+/* Badge icon color inherits from parent card color accent */
+.fw-cat-card--orange .fw-cat-card-badge { color: var(--fw-orange); }
+.fw-cat-card--emerald .fw-cat-card-badge { color: var(--fw-emerald); }
+.fw-cat-card--teal .fw-cat-card-badge { color: var(--fw-teal); }
+.fw-cat-card--cyan .fw-cat-card-badge { color: var(--fw-cyan); }
+.fw-cat-card--lime .fw-cat-card-badge { color: var(--fw-lime); }
+.fw-cat-card--amber .fw-cat-card-badge { color: var(--fw-amber); }
+
+.fw-cat-card-body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.fw-cat-card-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.fw-cat-card-body p {
+  font-size: 0.85rem;
+  color: var(--fw-text-muted);
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.fw-cat-card-body .fw-cat-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fw-text-muted);
+  margin-top: auto;
+}
+
+/* Remove the old standalone icon style when image is present */
+.fw-cat-card-body > i.bi {
+  display: none;
+}
+
+/* Color accent — border-top stays on the card body area */
+.fw-cat-card--orange  { border-top: none; }
+.fw-cat-card--emerald { border-top: none; }
+.fw-cat-card--teal    { border-top: none; }
+.fw-cat-card--cyan    { border-top: none; }
+.fw-cat-card--lime    { border-top: none; }
+.fw-cat-card--amber   { border-top: none; }
+
+.fw-cat-card--orange .fw-cat-card-body  { border-top: 3px solid var(--fw-orange); }
+.fw-cat-card--emerald .fw-cat-card-body { border-top: 3px solid var(--fw-emerald); }
+.fw-cat-card--teal .fw-cat-card-body    { border-top: 3px solid var(--fw-teal); }
+.fw-cat-card--cyan .fw-cat-card-body    { border-top: 3px solid var(--fw-cyan); }
+.fw-cat-card--lime .fw-cat-card-body    { border-top: 3px solid var(--fw-lime); }
+.fw-cat-card--amber .fw-cat-card-body   { border-top: 3px solid var(--fw-amber); }
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-cat-card-img {
+    transition: none;
+  }
+
+  .fw-cat-card:hover .fw-cat-card-img {
+    transform: none;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   A.41 — Product Detail Enhancements (Sticky CTA)
+   ═══════════════════════════════════════════ */
+
+/*
+ * Mobile sticky CTA bar — fixed at bottom on small screens.
+ * Contains WhatsApp "Request a Quote" button.
+ * Hidden on desktop via d-none + shown on mobile via media query.
+ */
+
+.fw-pd-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1010;
+  padding: 0.75rem 1rem;
+  background-color: var(--fw-white);
+  border-top: 1px solid var(--fw-border);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.fw-pd-sticky-cta.visible {
+  transform: translateY(0);
+}
+
+.fw-pd-sticky-cta .fw-btn-whatsapp {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+}
+
+/* Reposition WhatsApp float and back-to-top above sticky bar on mobile */
+@media (max-width: 767.98px) {
+  body.has-sticky-cta .fw-whatsapp-float {
+    bottom: 5.5rem;
+  }
+
+  body.has-sticky-cta .fw-back-to-top {
+    bottom: 9rem;
+  }
+
+  [dir="rtl"] body.has-sticky-cta .fw-whatsapp-float {
+    bottom: 5.5rem;
+  }
+
+  [dir="rtl"] body.has-sticky-cta .fw-back-to-top {
+    bottom: 9rem;
+  }
+}
+
+/* Hide sticky CTA on desktop */
+@media (min-width: 768px) {
+  .fw-pd-sticky-cta {
+    display: none !important;
+  }
+}
+
+/* Specs table alternate row shading */
+.fw-specs-table tr:nth-child(even) th,
+.fw-specs-table tr:nth-child(even) td {
+  background-color: var(--fw-gray-50);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-pd-sticky-cta {
+    transition: none;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   A.42 — Filter Bar Enhancements (Count Badge)
+   ═══════════════════════════════════════════ */
+
+.fw-filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  padding: 0 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 999px;
+  margin-left: 0.4rem;
+  background-color: var(--fw-gray-200);
+  color: var(--fw-gray-600);
+}
+
+[dir="rtl"] .fw-filter-count {
+  margin-left: 0;
+  margin-right: 0.4rem;
+}
+
+/* Active filter button — count badge inverted */
+.fw-filter-btn.active .fw-filter-count {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: var(--fw-white);
+}

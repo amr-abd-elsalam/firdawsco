@@ -36,6 +36,15 @@ var ProductsApp = (function () {
   var _currentCategory = 'all';
   var _filterWired = false;
 
+  /* ── Helper: Count products per category ── */
+  function countProductsInCategory(categoryId) {
+    var count = 0;
+    for (var i = 0; i < DATA.products.length; i++) {
+      if (DATA.products[i].categoryId === categoryId) count++;
+    }
+    return count;
+  }
+
   /* ── Helpers ── */
 
   function clearChildren(el) {
@@ -120,24 +129,35 @@ var ProductsApp = (function () {
 
     var frag = document.createDocumentFragment();
 
-    /* "All Products" button */
+    /* "All Products" button with total count */
     var allBtn = U.el('button', {
       type: 'button',
       className: 'fw-filter-btn' + (_currentCategory === 'all' ? ' active' : ''),
-      textContent: U.t(META.productsSection.all, lang),
       dataset: { category: 'all' }
-    });
+    }, [
+      U.t(META.productsSection.all, lang),
+      U.el('span', {
+        className: 'fw-filter-count',
+        textContent: String(DATA.products.length)
+      })
+    ]);
     frag.appendChild(allBtn);
 
-    /* Category buttons */
+    /* Category buttons with count badges */
     DATA.categories.forEach(function (cat) {
       var catName = cat[lang] ? cat[lang].name : cat.en.name;
+      var count = countProductsInCategory(cat.id);
       var btn = U.el('button', {
         type: 'button',
         className: 'fw-filter-btn' + (_currentCategory === cat.id ? ' active' : ''),
-        textContent: catName,
         dataset: { category: cat.id }
-      });
+      }, [
+        catName,
+        U.el('span', {
+          className: 'fw-filter-count',
+          textContent: String(count)
+        })
+      ]);
       frag.appendChild(btn);
     });
 

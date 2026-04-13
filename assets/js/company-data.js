@@ -26,6 +26,7 @@ var COMPANY_DATA = (function () {
       id: 'citrus',
       icon: 'bi-circle-half',
       color: 'orange',
+      image: './assets/img/categories/citrus.webp',
       en: { name: 'Citrus Fruits', desc: 'Premium Egyptian citrus — navel oranges, Valencia oranges, mandarins, and lemons — grown in the fertile Nile Delta and exported worldwide.' },
       ar: { name: 'حمضيات', desc: 'حمضيات مصرية ممتازة — برتقال أبو سرة وفالنسيا ويوسفي وليمون — من أراضي دلتا النيل الخصبة للتصدير العالمي.' }
     },
@@ -33,6 +34,7 @@ var COMPANY_DATA = (function () {
       id: 'fresh-fruits',
       icon: 'bi-tree',
       color: 'emerald',
+      image: './assets/img/categories/fresh-fruits.webp',
       en: { name: 'Fresh Fruits', desc: 'Hand-picked fresh fruits including table grapes, strawberries, pomegranates, mangoes, guavas, and watermelons — naturally sweet, export-grade quality.' },
       ar: { name: 'فاكهة طازجة', desc: 'فواكه طازجة مختارة يدوياً تشمل عنب وفراولة ورمان ومانجو وجوافة وبطيخ — حلاوة طبيعية وجودة تصديرية.' }
     },
@@ -40,6 +42,7 @@ var COMPANY_DATA = (function () {
       id: 'fresh-vegetables',
       icon: 'bi-flower1',
       color: 'teal',
+      image: './assets/img/categories/fresh-vegetables.webp',
       en: { name: 'Fresh Vegetables', desc: 'Field-fresh vegetables — potatoes, onions, garlic, sweet potatoes, green beans, bell peppers, and tomatoes — sourced from Egypt\'s prime growing regions.' },
       ar: { name: 'خضروات طازجة', desc: 'خضروات طازجة من الحقل — بطاطس وبصل وثوم وبطاطا حلوة وفاصوليا خضراء وفلفل رومي وطماطم — من أجود مناطق الزراعة في مصر.' }
     },
@@ -47,6 +50,7 @@ var COMPANY_DATA = (function () {
       id: 'frozen',
       icon: 'bi-snow',
       color: 'cyan',
+      image: './assets/img/categories/frozen.webp',
       en: { name: 'Frozen Products', desc: 'IQF (Individually Quick Frozen) fruits and vegetables — strawberries, green beans, and green peas — available year-round with full traceability.' },
       ar: { name: 'منتجات مجمدة', desc: 'فواكه وخضروات مجمدة بتقنية IQF (التجميد السريع الفردي) — فراولة وفاصوليا خضراء وبسلة — متاحة طوال العام مع تتبع كامل.' }
     },
@@ -54,6 +58,7 @@ var COMPANY_DATA = (function () {
       id: 'herbs-spices',
       icon: 'bi-leaf',
       color: 'lime',
+      image: './assets/img/categories/herbs-spices.webp',
       en: { name: 'Herbs & Spices', desc: 'Aromatic Egyptian herbs and spices — fresh basil and dried chamomile — cultivated under optimal conditions for maximum flavor and purity.' },
       ar: { name: 'أعشاب وتوابل', desc: 'أعشاب وتوابل مصرية عطرية — ريحان طازج وبابونج مجفف — مزروعة في ظروف مثالية لأقصى نكهة ونقاء.' }
     },
@@ -61,6 +66,7 @@ var COMPANY_DATA = (function () {
       id: 'dry-goods',
       icon: 'bi-basket',
       color: 'amber',
+      image: './assets/img/categories/dry-goods.webp',
       en: { name: 'Dry Goods & Grains', desc: 'Premium dried legumes and grains — white beans and other pulses — carefully sorted, cleaned, and packed for bulk export.' },
       ar: { name: 'حبوب وبقوليات', desc: 'بقوليات وحبوب مجففة ممتازة — فاصوليا بيضاء وبقوليات أخرى — مفرزة ومنظفة ومعبأة بعناية للتصدير بالجملة.' }
     }

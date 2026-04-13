@@ -422,6 +422,53 @@ var ProductDetailsApp = (function () {
   }
 
   /* ══════════════════════════════════════════
+     Builder: Sticky CTA (Mobile)
+  ══════════════════════════════════════════ */
+  var _stickyWired = false;
+
+  function buildStickyCTA(product) {
+    var container = document.getElementById('pd-sticky-cta');
+    if (!container) return;
+
+    var lang = U.getLang();
+    clearChildren(container);
+
+    /* Build WhatsApp button */
+    var waUrl = SP.buildProductWhatsAppUrl(product.en.name);
+    var btn = U.el('a', {
+      href: U.sanitizeUrl(waUrl),
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      className: 'fw-btn-whatsapp'
+    }, [
+      U.el('i', { className: 'bi bi-whatsapp', aria: { hidden: 'true' } }),
+      U.t(META.productDetails.requestQuote, lang)
+    ]);
+
+    container.appendChild(btn);
+
+    /* Add body class for repositioning floats */
+    document.body.classList.add('has-sticky-cta');
+
+    /* Show/hide on scroll — only wire once */
+    if (!_stickyWired) {
+      var heroSection = document.getElementById('pd-hero-section');
+
+      window.addEventListener('scroll', U.throttle(function () {
+        if (!heroSection) return;
+        var heroBottom = heroSection.getBoundingClientRect().bottom;
+        if (heroBottom < 0) {
+          container.classList.add('visible');
+        } else {
+          container.classList.remove('visible');
+        }
+      }, 150));
+
+      _stickyWired = true;
+    }
+  }
+
+  /* ══════════════════════════════════════════
      Builder: CTA
   ══════════════════════════════════════════ */
 
@@ -517,8 +564,8 @@ var ProductDetailsApp = (function () {
       buildNotFound();
       return;
     }
-    var category = findCategoryById(product.categoryId);
 
+    var category = findCategoryById(product.categoryId);
     showContentSections();
     buildBreadcrumb(product, category);
     buildProductHero(product);
@@ -526,6 +573,7 @@ var ProductDetailsApp = (function () {
     buildPackaging(product);
     buildCertifications(product);
     buildRelatedProducts(product);
+    buildStickyCTA(product);
     buildCTA();
     buildFooterContactText();
     injectSEO(product, category);
@@ -566,6 +614,7 @@ var ProductDetailsApp = (function () {
     buildPackaging(product);
     buildCertifications(product);
     buildRelatedProducts(product);
+    buildStickyCTA(product);
     buildCTA();
     buildFooterContactText();
   }
