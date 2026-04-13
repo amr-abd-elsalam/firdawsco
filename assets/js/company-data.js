@@ -972,6 +972,39 @@ var COMPANY_DATA = (function () {
 
   var META = {
     ogImage: '/assets/img/og-image.png',
+    heroImage: '/assets/img/hero-bg.webp',
+    statsBar: {
+      items: [
+        {
+          icon: 'bi-globe-americas',
+          value: '25',
+          suffix: { en: '+', ar: '+' },
+          en: { label: 'Export Destinations' },
+          ar: { label: 'وجهة تصدير' }
+        },
+        {
+          icon: 'bi-box-seam',
+          value: '24',
+          suffix: { en: '', ar: '' },
+          en: { label: 'Premium Products' },
+          ar: { label: 'منتج ممتاز' }
+        },
+        {
+          icon: 'bi-patch-check',
+          value: '5',
+          suffix: { en: '', ar: '' },
+          en: { label: 'Quality Certifications' },
+          ar: { label: 'شهادات جودة' }
+        },
+        {
+          icon: 'bi-calendar-check',
+          value: '6',
+          suffix: { en: '+', ar: '+' },
+          en: { label: 'Years of Excellence' },
+          ar: { label: 'سنوات تميز' }
+        }
+      ]
+    },
     supportEmail: 'info@firdawsco.com',
     foundingYear: '2020',
     logoPath: '/assets/img/logo.webp',

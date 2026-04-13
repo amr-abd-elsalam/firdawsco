@@ -66,6 +66,12 @@ var HomeApp = (function () {
   function buildHero() {
     var lang = U.getLang();
 
+    /* Set hero background image via CSS variable */
+    var heroSection = document.getElementById('hero-section');
+    if (heroSection && META.heroImage) {
+      heroSection.style.setProperty('--fw-hero-bg', 'url(' + U.sanitizeUrl('.' + META.heroImage) + ')');
+    }
+
     SP.setTextById('hero-heading', U.t(META.hero.title, lang));
     SP.setTextById('hero-subtitle', U.t(META.hero.subtitle, lang));
 
@@ -78,6 +84,50 @@ var HomeApp = (function () {
     if (quoteEl) quoteEl.href = U.sanitizeUrl(SP.getDefaultWhatsAppUrl());
 
     SP.setTextById('hero-cta-quote-text', U.t(META.hero.ctaSecondary, lang));
+  }
+
+  /* ══════════════════════════════════════════
+     Builder 1B: Stats Bar
+  ══════════════════════════════════════════ */
+  function buildStatsBar() {
+    var grid = document.getElementById('stats-grid');
+    if (!grid) return;
+    if (!META.statsBar || !META.statsBar.items) return;
+
+    var lang = U.getLang();
+    clearChildren(grid);
+
+    var frag = document.createDocumentFragment();
+
+    META.statsBar.items.forEach(function (item) {
+      var itemData = item[lang] || item.en;
+      var stat = U.el('div', { className: 'fw-stat-item' });
+
+      /* Icon */
+      var iconWrap = U.el('div', { className: 'fw-stat-icon' });
+      iconWrap.appendChild(
+        U.el('i', { className: 'bi ' + item.icon, aria: { hidden: 'true' } })
+      );
+      stat.appendChild(iconWrap);
+
+      /* Value + Suffix */
+      var rawValue = Number(item.value);
+      var displayValue = lang === 'ar' ? U.formatNumberAr(rawValue) : U.formatNumber(rawValue);
+      var suffix = U.t(item.suffix, lang) || '';
+
+      stat.appendChild(
+        U.el('span', { className: 'fw-stat-value', textContent: displayValue + suffix })
+      );
+
+      /* Label */
+      stat.appendChild(
+        U.el('span', { className: 'fw-stat-label', textContent: itemData.label })
+      );
+
+      frag.appendChild(stat);
+    });
+
+    grid.appendChild(frag);
   }
 
   /* ══════════════════════════════════════════
@@ -490,6 +540,7 @@ var HomeApp = (function () {
 
   function refreshPage() {
     buildHero();
+    buildStatsBar();
     buildAboutPreview();
     buildCategoriesGrid();
     buildFeaturedProducts();
@@ -520,6 +571,7 @@ var HomeApp = (function () {
 
     /* Build all page sections */
     buildHero();
+    buildStatsBar();
     buildAboutPreview();
     buildCategoriesGrid();
     buildFeaturedProducts();
