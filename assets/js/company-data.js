@@ -24,7 +24,7 @@ var COMPANY_DATA = (function () {
   var categories = [
     {
       id: 'citrus',
-      icon: 'bi-circle-half',
+      icon: 'bi-sun',
       color: 'orange',
       image: './assets/img/categories/citrus.webp',
       en: { name: 'Citrus Fruits', desc: 'Premium Egyptian citrus — navel oranges, Valencia oranges, mandarins, and lemons — grown in the fertile Nile Delta and exported worldwide.' },
@@ -56,7 +56,7 @@ var COMPANY_DATA = (function () {
     },
     {
       id: 'herbs-spices',
-      icon: 'bi-leaf',
+      icon: 'bi-flower2',
       color: 'lime',
       image: './assets/img/categories/herbs-spices.webp',
       en: { name: 'Herbs & Spices', desc: 'Aromatic Egyptian herbs and spices — fresh basil and dried chamomile — cultivated under optimal conditions for maximum flavor and purity.' },

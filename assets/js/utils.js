@@ -68,6 +68,24 @@ var Utils = (function () {
     return el('a', Object.assign({}, attrs || {}, { href: safe || '#' }), [text]);
   }
 
+  /* ── SVG DOM Creation ── */
+
+  function svgEl(tag, attrs) {
+    var ns = 'http://www.w3.org/2000/svg';
+    var e = document.createElementNS(ns, tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) {
+        var v = attrs[k];
+        if (v == null) return;
+        if (k === 'className') e.setAttribute('class', v);
+        else if (k === 'textContent') e.textContent = v;
+        else if (k === 'innerHTML') { console.warn('svgEl: innerHTML blocked'); }
+        else e.setAttribute(k, v);
+      });
+    }
+    return e;
+  }
+
   /* ── Clear Children ── */
 
   function clearChildren(node) {
@@ -247,6 +265,7 @@ var Utils = (function () {
     escapeAttr: escapeAttr,
     sanitizeUrl: sanitizeUrl,
     el: el,
+    svgEl: svgEl,
     buildSafeLink: buildSafeLink,
     clearChildren: clearChildren,
     countProductsInCategory: countProductsInCategory,

@@ -247,6 +247,8 @@ var SharedPage = (function () {
   /* ── Back to Top ── */
 
   var _backToTopWired = false;
+  var _progressCircle = null;
+  var _circumference = 0;
 
   function updateBackToTopLabel() {
     var btn = document.getElementById('back-to-top');
@@ -257,6 +259,46 @@ var SharedPage = (function () {
     var btn = document.getElementById('back-to-top');
     if (!btn) return;
 
+    /* Build SVG progress ring + icon — once only */
+    if (!_progressCircle) {
+      U.clearChildren(btn);
+
+      _circumference = 2 * Math.PI * 23;
+
+      var svg = U.svgEl('svg', {
+        className: 'fw-back-to-top__ring',
+        viewBox: '0 0 52 52',
+        width: '52',
+        height: '52'
+      });
+
+      var track = U.svgEl('circle', {
+        className: 'fw-back-to-top__track',
+        cx: '26',
+        cy: '26',
+        r: '23'
+      });
+
+      var progress = U.svgEl('circle', {
+        className: 'fw-back-to-top__progress',
+        cx: '26',
+        cy: '26',
+        r: '23',
+        'stroke-dasharray': String(_circumference),
+        'stroke-dashoffset': String(_circumference)
+      });
+
+      svg.appendChild(track);
+      svg.appendChild(progress);
+      btn.appendChild(svg);
+
+      _progressCircle = progress;
+
+      var iconWrap = U.el('span', { className: 'fw-back-to-top__icon' });
+      iconWrap.appendChild(U.el('i', { className: 'bi bi-chevron-up', aria: { hidden: 'true' } }));
+      btn.appendChild(iconWrap);
+    }
+
     updateBackToTopLabel();
 
     if (!_backToTopWired) {
@@ -266,6 +308,11 @@ var SharedPage = (function () {
         } else {
           btn.classList.remove('visible');
         }
+
+        var doc = document.documentElement;
+        var scrollH = doc.scrollHeight - window.innerHeight;
+        var pct = scrollH > 0 ? Math.min(Math.max(window.scrollY / scrollH, 0), 1) : 0;
+        _progressCircle.setAttribute('stroke-dashoffset', String(_circumference * (1 - pct)));
       }, 200));
 
       btn.addEventListener('click', function () {

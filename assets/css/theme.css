@@ -813,19 +813,15 @@ a:hover {
    ═══════════════════════════════════════════ */
 
 .fw-whatsapp-float {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background-color: #25d366;
   color: var(--fw-white);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-decoration: none;
   box-shadow: var(--fw-shadow-lg);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -837,35 +833,40 @@ a:hover {
   color: var(--fw-white);
 }
 
-[dir="rtl"] .fw-whatsapp-float {
+/* ═══════════════════════════════════════════
+   A.18 — Floating Actions Wrapper + Back to Top
+   ═══════════════════════════════════════════ */
+
+.fw-floating-actions {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+[dir="rtl"] .fw-floating-actions {
   right: auto;
   left: 1.5rem;
 }
 
-/* ═══════════════════════════════════════════
-   A.18 — Back to Top
-   ═══════════════════════════════════════════ */
-
 .fw-back-to-top {
-  position: fixed;
-  bottom: 5rem;
-  right: 1.5rem;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
+  position: relative;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background-color: var(--fw-gray-700);
-  color: var(--fw-white);
-  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: none;
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
-  transition: opacity 0.3s, transform 0.3s, background-color 0.2s;
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 .fw-back-to-top.visible {
@@ -874,13 +875,58 @@ a:hover {
   transform: translateY(0);
 }
 
-.fw-back-to-top:hover {
-  background-color: var(--fw-primary);
+.fw-back-to-top__ring {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+  pointer-events: none;
 }
 
-[dir="rtl"] .fw-back-to-top {
-  right: auto;
-  left: 1.5rem;
+.fw-back-to-top__track {
+  fill: none;
+  stroke: var(--fw-gray-300);
+  opacity: 0.3;
+  stroke-width: 3;
+}
+
+.fw-back-to-top__progress {
+  fill: none;
+  stroke: var(--fw-primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.15s ease-out;
+}
+
+.fw-back-to-top__icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fw-gray-600);
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px rgba(22, 163, 74, 0.35);
+  transition: text-shadow 0.3s, color 0.3s;
+}
+
+.fw-back-to-top:hover .fw-back-to-top__icon {
+  color: var(--fw-primary);
+  text-shadow: 0 0 14px rgba(22, 163, 74, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-back-to-top {
+    transition: none;
+  }
+
+  .fw-back-to-top__progress {
+    transition: none;
+  }
+
+  .fw-back-to-top__icon {
+    transition: none;
+    text-shadow: none;
+  }
 }
 
 /* ═══════════════════════════════════════════
@@ -1915,18 +1961,36 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background-color: var(--fw-white);
-  box-shadow: var(--fw-shadow-md);
-  font-size: 1.15rem;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  font-size: 1.05rem;
   z-index: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fw-cat-card:hover .fw-cat-card-badge {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
 [dir="rtl"] .fw-cat-card-badge {
   right: auto;
   left: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-cat-card-badge {
+    transition: none;
+  }
+
+  .fw-cat-card:hover .fw-cat-card-badge {
+    transform: none;
+  }
 }
 
 /* Badge icon color inherits from parent card color accent */
@@ -2030,22 +2094,10 @@ a:hover {
   font-size: 1rem;
 }
 
-/* Reposition WhatsApp float and back-to-top above sticky bar on mobile */
+/* Reposition floating actions above sticky bar on mobile */
 @media (max-width: 767.98px) {
-  body.has-sticky-cta .fw-whatsapp-float {
+  body.has-sticky-cta .fw-floating-actions {
     bottom: 5.5rem;
-  }
-
-  body.has-sticky-cta .fw-back-to-top {
-    bottom: 9rem;
-  }
-
-  [dir="rtl"] body.has-sticky-cta .fw-whatsapp-float {
-    bottom: 5.5rem;
-  }
-
-  [dir="rtl"] body.has-sticky-cta .fw-back-to-top {
-    bottom: 9rem;
   }
 }
 
@@ -2391,8 +2443,7 @@ a:hover {
 @media print {
   /* Hide interactive & non-essential elements */
   .fw-navbar,
-  .fw-whatsapp-float,
-  .fw-back-to-top,
+  .fw-floating-actions,
   .fw-pd-sticky-cta,
   .fw-cta,
   .fw-faq,
