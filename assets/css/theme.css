@@ -2098,3 +2098,407 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.3);
   color: var(--fw-white);
 }
+
+/* ═══════════════════════════════════════════
+   A.43 — Scroll Reveal (CSS-only, Progressive Enhancement)
+   ═══════════════════════════════════════════ */
+
+/*
+ * Uses scroll-driven animations (animation-timeline: view()).
+ * Supported in Chrome 115+, Edge 115+. Unsupported browsers see
+ * elements normally — no JS fallback needed.
+ * Respects prefers-reduced-motion.
+ */
+
+@supports (animation-timeline: view()) {
+  @keyframes fw-reveal-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fw-reveal {
+    animation: fw-reveal-up ease both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fw-reveal {
+      animation: none;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════
+   A.44 — RTL Polish
+   ═══════════════════════════════════════════ */
+
+/*
+ * Arabic-specific overrides:
+ * - Remove letter-spacing (breaks Arabic ligatures)
+ * - Increase line-height for Arabic readability
+ * - Enable Arabic font features
+ */
+
+[dir="rtl"] body {
+  line-height: 1.8;
+}
+
+[dir="rtl"] .fw-hero-title,
+[dir="rtl"] .fw-section-title,
+[dir="rtl"] .fw-cta-title,
+[dir="rtl"] .fw-product-hero-name {
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+[dir="rtl"] .fw-hero-subtitle,
+[dir="rtl"] .fw-section-subtitle,
+[dir="rtl"] .fw-cta-text,
+[dir="rtl"] .fw-about-text,
+[dir="rtl"] .fw-product-hero-desc {
+  letter-spacing: 0;
+  line-height: 1.9;
+}
+
+[dir="rtl"] .fw-footer-heading {
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .fw-legal-toc-title {
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .fw-legal-header-badge {
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .fw-stat-label {
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+[dir="rtl"] .fw-cat-card-body p,
+[dir="rtl"] .fw-product-card-body p,
+[dir="rtl"] .fw-cert-card p,
+[dir="rtl"] .fw-value-card p {
+  line-height: 1.8;
+}
+
+[dir="rtl"] .fw-faq .accordion-body {
+  line-height: 1.9;
+}
+
+[dir="rtl"] .fw-legal-section p {
+  line-height: 2;
+}
+
+/* Arabic font feature settings for better rendering */
+[dir="rtl"] body {
+  font-feature-settings: 'calt' 1, 'liga' 1;
+  -webkit-font-feature-settings: 'calt' 1, 'liga' 1;
+}
+
+/* ═══════════════════════════════════════════
+   A.45 — Season Calendar Mobile (Horizontal Bars)
+   ═══════════════════════════════════════════ */
+
+/*
+ * On mobile (≤767px), the 24×13 table is replaced by
+ * horizontal bar items showing product name + colored month bar.
+ * Desktop: .fw-calendar-mobile is hidden, table is shown.
+ * Mobile: table is hidden, .fw-calendar-mobile is shown.
+ */
+
+.fw-calendar-mobile {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .fw-calendar-wrap {
+    display: none;
+  }
+
+  .fw-calendar-mobile {
+    display: block;
+  }
+
+  .fw-cal-m-item {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--fw-border);
+    border-radius: var(--fw-radius);
+    background-color: var(--fw-white);
+  }
+
+  .fw-cal-m-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--fw-gray-700);
+    margin-bottom: 0.4rem;
+  }
+
+  .fw-cal-m-bar-wrap {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2px;
+    height: 22px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .fw-cal-m-cell {
+    background-color: var(--fw-gray-100);
+    border-radius: 2px;
+  }
+
+  .fw-cal-m-cell.active {
+    background-color: var(--fw-green-500);
+  }
+
+  .fw-cal-m-months {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2px;
+    margin-top: 2px;
+  }
+
+  .fw-cal-m-month-label {
+    font-size: 0.55rem;
+    color: var(--fw-gray-400);
+    text-align: center;
+    line-height: 1;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   A.46 — Footer Polish
+   ═══════════════════════════════════════════ */
+
+.fw-footer {
+  background: linear-gradient(180deg, var(--fw-gray-800) 0%, var(--fw-gray-900) 100%);
+}
+
+.fw-footer-links a {
+  position: relative;
+  display: inline-block;
+}
+
+.fw-footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--fw-green-400);
+  transition: width 0.25s ease;
+}
+
+.fw-footer-links a:hover::after {
+  width: 100%;
+}
+
+[dir="rtl"] .fw-footer-links a::after {
+  left: auto;
+  right: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-footer-links a::after {
+    transition: none;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   A.47 — About Page Polish
+   ═══════════════════════════════════════════ */
+
+/* Mission card — left accent border + subtle gradient */
+.fw-mission-card {
+  border-left: 4px solid var(--fw-primary);
+  background: linear-gradient(135deg, var(--fw-white) 0%, var(--fw-green-50) 100%);
+  text-align: start;
+}
+
+[dir="rtl"] .fw-mission-card {
+  border-left: none;
+  border-right: 4px solid var(--fw-primary);
+}
+
+/* Value cards — colored top border on hover */
+.fw-value-card:hover {
+  border-top: 3px solid var(--fw-primary);
+}
+
+/* ═══════════════════════════════════════════
+   A.48 — Contact Form Polish
+   ═══════════════════════════════════════════ */
+
+/* Enhanced focus-visible for form controls */
+.fw-contact-form .form-control:focus-visible,
+.fw-contact-form .form-select:focus-visible {
+  outline: 2px solid var(--fw-primary);
+  outline-offset: 1px;
+  border-color: var(--fw-primary);
+  box-shadow: 0 0 0 0.15rem rgba(22, 163, 74, 0.12);
+}
+
+/* Success message slide-in animation */
+@keyframes fw-success-slide {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fw-form-success {
+  animation: fw-success-slide 0.4s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-form-success {
+    animation: none;
+  }
+}
+
+/* Submit button hover lift */
+.fw-contact-form .fw-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fw-contact-form .fw-btn-primary:hover {
+    transform: none;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   A.49 — Print Styles
+   ═══════════════════════════════════════════ */
+
+@media print {
+  /* Hide interactive & non-essential elements */
+  .fw-navbar,
+  .fw-whatsapp-float,
+  .fw-back-to-top,
+  .fw-pd-sticky-cta,
+  .fw-cta,
+  .fw-faq,
+  .skip-link,
+  #lang-switch,
+  .fw-btn-whatsapp,
+  .fw-btn-primary,
+  .fw-btn-outline,
+  .fw-filter-bar {
+    display: none !important;
+  }
+
+  /* Clean layout */
+  body {
+    color: #000;
+    background: #fff;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Hero — reset to plain text */
+  .fw-hero,
+  .fw-hero--compact {
+    background: none !important;
+    padding: 1rem 0;
+  }
+
+  .fw-hero .fw-hero-title,
+  .fw-hero--compact .fw-hero-title {
+    color: #000;
+    font-size: 18pt;
+  }
+
+  .fw-hero .fw-hero-subtitle,
+  .fw-hero--compact .fw-hero-subtitle {
+    color: #333;
+  }
+
+  /* Stats bar — simple inline layout */
+  .fw-stats-bar {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+  }
+
+  .fw-stats-grid {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .fw-stat-icon {
+    display: none;
+  }
+
+  /* Footer — minimal */
+  .fw-footer {
+    background: none;
+    color: #000;
+    border-top: 1px solid #ccc;
+    padding: 1rem 0;
+  }
+
+  .fw-footer a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  /* Product cards — no hover effects */
+  .fw-product-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+
+  .fw-product-card img {
+    max-height: 150px;
+  }
+
+  /* Specs table — clean borders */
+  .fw-specs-table {
+    border: 1px solid #000;
+  }
+
+  .fw-specs-table th,
+  .fw-specs-table td {
+    border: 1px solid #000;
+  }
+
+  /* Links — show URL */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
+  }
+
+  /* Don't show URL for internal nav links */
+  .fw-footer-links a::after,
+  .fw-breadcrumb a::after {
+    content: none;
+  }
+
+  /* Page breaks */
+  .fw-section {
+    break-inside: avoid;
+  }
+
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+}

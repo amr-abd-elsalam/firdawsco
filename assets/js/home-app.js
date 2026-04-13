@@ -394,6 +394,61 @@ var HomeApp = (function () {
   }
 
   /* ══════════════════════════════════════════
+     Builder 5B: Season Calendar — Mobile (Horizontal Bars)
+  ══════════════════════════════════════════ */
+  function buildSeasonCalendarMobile() {
+    var container = document.getElementById('calendar-mobile');
+    if (!container) return;
+
+    var lang = U.getLang();
+    var monthNames = META.seasonCalendar.months[lang] || META.seasonCalendar.months.en;
+
+    clearChildren(container);
+
+    var frag = document.createDocumentFragment();
+
+    DATA.products.forEach(function (product) {
+      var prodData = product[lang] || product.en;
+
+      var item = U.el('div', { className: 'fw-cal-m-item' });
+
+      /* Product name */
+      item.appendChild(
+        U.el('div', { className: 'fw-cal-m-name', textContent: prodData.name })
+      );
+
+      /* Bar wrap — 12 cells */
+      var barWrap = U.el('div', { className: 'fw-cal-m-bar-wrap' });
+
+      for (var m = 1; m <= 12; m++) {
+        var active = isMonthInSeason(product, m);
+        barWrap.appendChild(
+          U.el('div', { className: 'fw-cal-m-cell' + (active ? ' active' : '') })
+        );
+      }
+
+      item.appendChild(barWrap);
+
+      /* Month labels row */
+      var labelsRow = U.el('div', { className: 'fw-cal-m-months' });
+
+      for (var j = 0; j < 12; j++) {
+        labelsRow.appendChild(
+          U.el('span', {
+            className: 'fw-cal-m-month-label',
+            textContent: monthNames[j].substring(0, 1)
+          })
+        );
+      }
+
+      item.appendChild(labelsRow);
+      frag.appendChild(item);
+    });
+
+    container.appendChild(frag);
+  }
+
+  /* ══════════════════════════════════════════
      Builder 6: Certifications
   ══════════════════════════════════════════ */
 
@@ -558,6 +613,7 @@ var HomeApp = (function () {
     buildCategoriesGrid();
     buildFeaturedProducts();
     buildSeasonCalendar();
+    buildSeasonCalendarMobile();
     buildCertifications();
     buildCTA();
     buildFAQ();
@@ -589,6 +645,7 @@ var HomeApp = (function () {
     buildCategoriesGrid();
     buildFeaturedProducts();
     buildSeasonCalendar();
+    buildSeasonCalendarMobile();
     buildCertifications();
     buildCTA();
     buildFAQ();
