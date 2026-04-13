@@ -1,0 +1,930 @@
+/* ── Firdaws Import & Export Co. — Theme CSS ──
+   @font-face declarations, CSS custom properties,
+   and all fw- prefixed classes.
+   Light professional B2B theme — green/white palette.
+   ── End Summary ── */
+
+/* ═══════════════════════════════════════════
+   A.1 — @font-face Declarations
+   ═══════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'Inter Variable';
+  src: url('../fonts/inter-variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo Variable';
+  src: url('../fonts/cairo-variable.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════
+   A.2 — CSS Custom Properties
+   ═══════════════════════════════════════════ */
+
+:root {
+  /* Fonts — switchLanguage() depends on these exact names */
+  --fw-font-en: 'Inter Variable', system-ui, -apple-system, sans-serif;
+  --fw-font-ar: 'Cairo Variable', 'Segoe UI', Tahoma, sans-serif;
+  --fw-font-body: var(--fw-font-en);
+
+  /* Brand Colors — green palette */
+  --fw-green-50: #f0fdf4;
+  --fw-green-100: #dcfce7;
+  --fw-green-200: #bbf7d0;
+  --fw-green-300: #86efac;
+  --fw-green-400: #4ade80;
+  --fw-green-500: #22c55e;
+  --fw-green-600: #16a34a;
+  --fw-green-700: #15803d;
+  --fw-green-800: #166534;
+  --fw-green-900: #14532d;
+
+  --fw-primary: var(--fw-green-600);
+  --fw-primary-hover: var(--fw-green-700);
+  --fw-primary-light: var(--fw-green-50);
+
+  /* Neutrals */
+  --fw-white: #ffffff;
+  --fw-gray-50: #f9fafb;
+  --fw-gray-100: #f3f4f6;
+  --fw-gray-200: #e5e7eb;
+  --fw-gray-300: #d1d5db;
+  --fw-gray-400: #9ca3af;
+  --fw-gray-500: #6b7280;
+  --fw-gray-600: #4b5563;
+  --fw-gray-700: #374151;
+  --fw-gray-800: #1f2937;
+  --fw-gray-900: #111827;
+
+  /* Semantic */
+  --fw-bg: var(--fw-white);
+  --fw-bg-alt: var(--fw-gray-50);
+  --fw-text: var(--fw-gray-800);
+  --fw-text-muted: var(--fw-gray-500);
+  --fw-border: var(--fw-gray-200);
+
+  /* Category Colors — match DATA.categories[].color */
+  --fw-orange: #f97316;
+  --fw-emerald: #10b981;
+  --fw-teal: #14b8a6;
+  --fw-cyan: #06b6d4;
+  --fw-lime: #84cc16;
+  --fw-amber: #f59e0b;
+
+  /* Spacing / Radius */
+  --fw-radius: 0.5rem;
+  --fw-radius-lg: 1rem;
+  --fw-section-py: 5rem;
+
+  /* Shadows */
+  --fw-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --fw-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --fw-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --fw-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* ═══════════════════════════════════════════
+   A.3 — Base / Reset
+   ═══════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fw-font-body);
+  color: var(--fw-text);
+  background-color: var(--fw-bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--fw-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--fw-primary-hover);
+}
+
+/* ═══════════════════════════════════════════
+   A.4 — Skip Link
+   ═══════════════════════════════════════════ */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--fw-primary);
+  color: var(--fw-white);
+  font-weight: 600;
+  border-radius: 0 0 var(--fw-radius) 0;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+  color: var(--fw-white);
+}
+
+/* ═══════════════════════════════════════════
+   A.5 — Navbar
+   ═══════════════════════════════════════════ */
+
+.fw-navbar {
+  background-color: var(--fw-white);
+  border-bottom: 1px solid var(--fw-border);
+  box-shadow: var(--fw-shadow-sm);
+}
+
+.fw-navbar .navbar-toggler {
+  border: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.fw-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(22, 163, 74, 0.25);
+}
+
+.fw-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--fw-text);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.fw-brand:hover {
+  color: var(--fw-primary);
+}
+
+.fw-brand-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.fw-navbar .nav-link {
+  color: var(--fw-gray-600);
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--fw-radius);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.fw-navbar .nav-link:hover,
+.fw-navbar .nav-link:focus {
+  color: var(--fw-primary);
+  background-color: var(--fw-primary-light);
+}
+
+.fw-navbar .nav-link[aria-current="page"] {
+  color: var(--fw-primary);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   A.6 — Buttons
+   ═══════════════════════════════════════════ */
+
+.fw-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  background-color: var(--fw-primary);
+  color: var(--fw-white);
+  font-weight: 600;
+  border: 2px solid var(--fw-primary);
+  border-radius: var(--fw-radius);
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.fw-btn-primary:hover,
+.fw-btn-primary:focus {
+  background-color: var(--fw-primary-hover);
+  border-color: var(--fw-primary-hover);
+  color: var(--fw-white);
+  box-shadow: var(--fw-shadow-md);
+}
+
+.fw-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  background-color: transparent;
+  color: var(--fw-primary);
+  font-weight: 600;
+  border: 2px solid var(--fw-primary);
+  border-radius: var(--fw-radius);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.fw-btn-outline:hover,
+.fw-btn-outline:focus {
+  background-color: var(--fw-primary);
+  color: var(--fw-white);
+  box-shadow: var(--fw-shadow-md);
+}
+
+.fw-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.5rem;
+  background-color: #25d366;
+  color: var(--fw-white);
+  font-weight: 600;
+  border: 2px solid #25d366;
+  border-radius: var(--fw-radius);
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.fw-btn-whatsapp:hover,
+.fw-btn-whatsapp:focus {
+  background-color: #1da851;
+  border-color: #1da851;
+  color: var(--fw-white);
+  box-shadow: var(--fw-shadow-md);
+}
+
+.fw-btn-lang {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.875rem;
+  background-color: var(--fw-gray-100);
+  color: var(--fw-gray-700);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border: 1px solid var(--fw-border);
+  border-radius: var(--fw-radius);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.fw-btn-lang:hover,
+.fw-btn-lang:focus {
+  background-color: var(--fw-gray-200);
+  color: var(--fw-gray-900);
+}
+
+/* ═══════════════════════════════════════════
+   A.7 — Hero Section
+   ═══════════════════════════════════════════ */
+
+.fw-hero {
+  padding: 5rem 0 4rem;
+  background-color: var(--fw-primary-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.fw-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(22, 163, 74, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.fw-hero-title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--fw-gray-900);
+  margin-bottom: 1.25rem;
+}
+
+.fw-hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--fw-gray-600);
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════
+   A.8 — Sections
+   ═══════════════════════════════════════════ */
+
+.fw-section {
+  padding: var(--fw-section-py) 0;
+}
+
+.fw-section-alt {
+  background-color: var(--fw-bg-alt);
+}
+
+.fw-section-title {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--fw-gray-900);
+  margin-bottom: 0.75rem;
+}
+
+.fw-section-subtitle {
+  font-size: 1.1rem;
+  color: var(--fw-text-muted);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ═══════════════════════════════════════════
+   A.9 — Category Cards
+   ═══════════════════════════════════════════ */
+
+.fw-cat-card {
+  display: block;
+  padding: 1.5rem;
+  border: 1px solid var(--fw-border);
+  border-radius: var(--fw-radius-lg);
+  background-color: var(--fw-white);
+  text-decoration: none;
+  color: var(--fw-text);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  height: 100%;
+}
+
+.fw-cat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--fw-shadow-lg);
+  color: var(--fw-text);
+}
+
+.fw-cat-card i {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.fw-cat-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.fw-cat-card p {
+  font-size: 0.875rem;
+  color: var(--fw-text-muted);
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.fw-cat-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fw-text-muted);
+}
+
+/* Category color accents — border-top + icon color */
+.fw-cat-card--orange  { border-top: 3px solid var(--fw-orange); }
+.fw-cat-card--orange i { color: var(--fw-orange); }
+
+.fw-cat-card--emerald  { border-top: 3px solid var(--fw-emerald); }
+.fw-cat-card--emerald i { color: var(--fw-emerald); }
+
+.fw-cat-card--teal  { border-top: 3px solid var(--fw-teal); }
+.fw-cat-card--teal i { color: var(--fw-teal); }
+
+.fw-cat-card--cyan  { border-top: 3px solid var(--fw-cyan); }
+.fw-cat-card--cyan i { color: var(--fw-cyan); }
+
+.fw-cat-card--lime  { border-top: 3px solid var(--fw-lime); }
+.fw-cat-card--lime i { color: var(--fw-lime); }
+
+.fw-cat-card--amber  { border-top: 3px solid var(--fw-amber); }
+.fw-cat-card--amber i { color: var(--fw-amber); }
+
+.fw-cat-card:hover.fw-cat-card--orange  { border-color: var(--fw-orange); }
+.fw-cat-card:hover.fw-cat-card--emerald { border-color: var(--fw-emerald); }
+.fw-cat-card:hover.fw-cat-card--teal    { border-color: var(--fw-teal); }
+.fw-cat-card:hover.fw-cat-card--cyan    { border-color: var(--fw-cyan); }
+.fw-cat-card:hover.fw-cat-card--lime    { border-color: var(--fw-lime); }
+.fw-cat-card:hover.fw-cat-card--amber   { border-color: var(--fw-amber); }
+
+/* ═══════════════════════════════════════════
+   A.10 — Product Cards
+   ═══════════════════════════════════════════ */
+
+.fw-product-card {
+  border: 1px solid var(--fw-border);
+  border-radius: var(--fw-radius-lg);
+  background-color: var(--fw-white);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.fw-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--fw-shadow-lg);
+}
+
+.fw-product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--fw-border);
+}
+
+.fw-product-card-body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.fw-product-card-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.375rem;
+}
+
+.fw-product-card-body p {
+  font-size: 0.85rem;
+  color: var(--fw-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.fw-product-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+}
+
+.fw-badge-season {
+  background-color: var(--fw-green-100);
+  color: var(--fw-green-800);
+}
+
+.fw-product-card-footer {
+  margin-top: auto;
+  padding-top: 0.75rem;
+}
+
+/* ═══════════════════════════════════════════
+   A.11 — Season Calendar Table
+   ═══════════════════════════════════════════ */
+
+.fw-calendar-table {
+  width: 100%;
+  font-size: 0.8rem;
+  border-collapse: collapse;
+}
+
+.fw-calendar-table th,
+.fw-calendar-table td {
+  padding: 0.4rem 0.35rem;
+  text-align: center;
+  border: 1px solid var(--fw-border);
+  white-space: nowrap;
+}
+
+.fw-calendar-table thead th {
+  background-color: var(--fw-gray-100);
+  font-weight: 700;
+  color: var(--fw-gray-700);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.fw-calendar-table thead th:first-child {
+  text-align: start;
+  min-width: 140px;
+}
+
+.fw-calendar-table tbody td:first-child {
+  text-align: start;
+  font-weight: 600;
+  color: var(--fw-gray-700);
+  background-color: var(--fw-white);
+}
+
+.fw-cal-active {
+  background-color: var(--fw-green-500);
+  color: var(--fw-white);
+}
+
+.fw-calendar-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--fw-radius);
+  border: 1px solid var(--fw-border);
+}
+
+/* ═══════════════════════════════════════════
+   A.12 — Certification Cards
+   ═══════════════════════════════════════════ */
+
+.fw-cert-card {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--fw-border);
+  border-radius: var(--fw-radius-lg);
+  background-color: var(--fw-white);
+  height: 100%;
+  transition: box-shadow 0.2s;
+}
+
+.fw-cert-card:hover {
+  box-shadow: var(--fw-shadow-md);
+}
+
+.fw-cert-logo {
+  max-height: 60px;
+  width: auto;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+.fw-cert-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--fw-gray-800);
+}
+
+.fw-cert-card p {
+  font-size: 0.8rem;
+  color: var(--fw-text-muted);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* ═══════════════════════════════════════════
+   A.13 — CTA Section
+   ═══════════════════════════════════════════ */
+
+.fw-cta {
+  padding: var(--fw-section-py) 0;
+  background-color: var(--fw-primary);
+  color: var(--fw-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.fw-cta::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.fw-cta-title {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--fw-white);
+}
+
+.fw-cta-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fw-cta .fw-btn-outline {
+  border-color: var(--fw-white);
+  color: var(--fw-white);
+}
+
+.fw-cta .fw-btn-outline:hover,
+.fw-cta .fw-btn-outline:focus {
+  background-color: var(--fw-white);
+  color: var(--fw-primary);
+}
+
+/* ═══════════════════════════════════════════
+   A.14 — FAQ / Accordion
+   ═══════════════════════════════════════════ */
+
+.fw-faq .accordion-item {
+  border: 1px solid var(--fw-border);
+  margin-bottom: 0.5rem;
+  border-radius: var(--fw-radius) !important;
+  overflow: hidden;
+}
+
+.fw-faq .accordion-button {
+  font-weight: 600;
+  color: var(--fw-gray-800);
+  background-color: var(--fw-white);
+  padding: 1rem 1.25rem;
+}
+
+.fw-faq .accordion-button:not(.collapsed) {
+  background-color: var(--fw-primary-light);
+  color: var(--fw-primary);
+  box-shadow: none;
+}
+
+.fw-faq .accordion-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(22, 163, 74, 0.25);
+  border-color: transparent;
+}
+
+.fw-faq .accordion-body {
+  color: var(--fw-gray-600);
+  line-height: 1.7;
+  padding: 1rem 1.25rem;
+}
+
+/* ═══════════════════════════════════════════
+   A.15 — About Preview — cert logos row
+   ═══════════════════════════════════════════ */
+
+.fw-about-certs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.fw-about-certs img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  filter: grayscale(30%);
+}
+
+.fw-about-certs img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* ═══════════════════════════════════════════
+   A.16 — Footer
+   ═══════════════════════════════════════════ */
+
+.fw-footer {
+  background-color: var(--fw-gray-800);
+  color: var(--fw-gray-300);
+  padding: 3.5rem 0 0;
+}
+
+.fw-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.fw-footer-brand img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.fw-footer-brand span {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--fw-white);
+}
+
+.fw-footer-tagline {
+  font-size: 0.9rem;
+  color: var(--fw-gray-400);
+  line-height: 1.6;
+}
+
+.fw-footer-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--fw-gray-400);
+  margin-bottom: 1rem;
+}
+
+.fw-footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fw-footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.fw-footer-links a {
+  color: var(--fw-gray-300);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.fw-footer-links a:hover {
+  color: var(--fw-white);
+}
+
+.fw-footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.fw-footer-contact-item i {
+  color: var(--fw-green-400);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.fw-footer-contact-item a {
+  color: var(--fw-gray-300);
+  text-decoration: none;
+}
+
+.fw-footer-contact-item a:hover {
+  color: var(--fw-white);
+}
+
+.fw-footer-bottom {
+  border-top: 1px solid var(--fw-gray-700);
+  padding: 1.25rem 0;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--fw-gray-400);
+}
+
+.fw-footer-bottom a {
+  color: var(--fw-gray-400);
+  text-decoration: none;
+}
+
+.fw-footer-bottom a:hover {
+  color: var(--fw-white);
+}
+
+/* ═══════════════════════════════════════════
+   A.17 — WhatsApp Float
+   ═══════════════════════════════════════════ */
+
+.fw-whatsapp-float {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #25d366;
+  color: var(--fw-white);
+  font-size: 1.5rem;
+  text-decoration: none;
+  box-shadow: var(--fw-shadow-lg);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fw-whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  color: var(--fw-white);
+}
+
+[dir="rtl"] .fw-whatsapp-float {
+  right: auto;
+  left: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════
+   A.18 — Back to Top
+   ═══════════════════════════════════════════ */
+
+.fw-back-to-top {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--fw-gray-700);
+  color: var(--fw-white);
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s, background-color 0.2s;
+}
+
+.fw-back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.fw-back-to-top:hover {
+  background-color: var(--fw-primary);
+}
+
+[dir="rtl"] .fw-back-to-top {
+  right: auto;
+  left: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════
+   A.19 — RTL Overrides
+   ═══════════════════════════════════════════ */
+
+[dir="rtl"] body {
+  text-align: right;
+}
+
+/* ═══════════════════════════════════════════
+   A.20 — Responsive Adjustments
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 767.98px) {
+  :root {
+    --fw-section-py: 3rem;
+  }
+
+  .fw-hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .fw-calendar-table {
+    font-size: 0.7rem;
+  }
+
+  .fw-calendar-table th,
+  .fw-calendar-table td {
+    padding: 0.3rem 0.25rem;
+  }
+
+  .fw-footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .fw-hero-title {
+    font-size: 1.75rem;
+  }
+
+  .fw-about-certs img {
+    height: 30px;
+  }
+}
