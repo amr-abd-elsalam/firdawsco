@@ -977,7 +977,7 @@ var COMPANY_DATA = (function () {
   /* ── META — All UI Strings (bilingual) ── */
 
   var META = {
-    ogImage: '/assets/img/og-image.png',
+    ogImage: '/assets/img/og-image.webp',
     heroImage: '/assets/img/hero-bg.webp',
     statsBar: {
       items: [

@@ -69,7 +69,7 @@ var HomeApp = (function () {
     /* Set hero background image via CSS variable */
     var heroSection = document.getElementById('hero-section');
     if (heroSection && META.heroImage) {
-      heroSection.style.setProperty('--fw-hero-bg', 'url(' + U.sanitizeUrl('.' + META.heroImage) + ')');
+      heroSection.style.setProperty('--fw-hero-bg', 'url(' + U.sanitizeUrl(META.heroImage) + ')');
     }
 
     SP.setTextById('hero-heading', U.t(META.hero.title, lang));
