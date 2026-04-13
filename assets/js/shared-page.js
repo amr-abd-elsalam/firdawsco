@@ -22,6 +22,9 @@ var SharedPage = (function () {
   /* Page-specific refresh callback — set by each page controller */
   var _pageRefreshCallback = null;
 
+  /* Footer category links base path — varies per page depth */
+  var _footerCategoryBase = './products/';
+
   /* Flag to ensure lang switcher listener is wired only once */
   var _langSwitcherWired = false;
 
@@ -201,7 +204,7 @@ var SharedPage = (function () {
     /* Build new */
     var frag = document.createDocumentFragment();
     DATA.categories.forEach(function (cat) {
-      var href = './products/?category=' + encodeURIComponent(cat.id);
+      var href = _footerCategoryBase + '?category=' + encodeURIComponent(cat.id);
       var catName = cat[lang] ? cat[lang].name : (cat.en ? cat.en.name : cat.id);
       frag.appendChild(
         U.el('li', null, [
@@ -395,6 +398,11 @@ var SharedPage = (function () {
 
   function initPage(config) {
     config = config || {};
+
+    /* Set footer category base path (varies by page depth) */
+    if (config.footerCategoryBase) {
+      _footerCategoryBase = config.footerCategoryBase;
+    }
 
     /* Apply stored language on page load */
     var lang = U.getLang();

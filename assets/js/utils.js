@@ -200,6 +200,26 @@ var Utils = (function () {
     }
     return months[from - 1] + ' — ' + months[to - 1];
   }
+  /* ── URL Query Parameter ── */
+
+  /**
+   * Read a query parameter from the current URL.
+   * Pure ES5 implementation — no URLSearchParams.
+   * @param {string} name — parameter name
+   * @returns {string|null} — decoded value or null if not found
+   */
+  function getQueryParam(name) {
+    var search = window.location.search;
+    if (!search) return null;
+    var pairs = search.substring(1).split('&');
+    for (var i = 0; i < pairs.length; i++) {
+      var pair = pairs[i].split('=');
+      if (decodeURIComponent(pair[0]) === name) {
+        return pair.length > 1 ? decodeURIComponent(pair[1]) : '';
+      }
+    }
+    return null;
+  }
 
   /* ── Public API ── */
 
@@ -221,7 +241,8 @@ var Utils = (function () {
     getLang: getLang,
     t: t,
     isInSeason: isInSeason,
-    seasonText: seasonText
+    seasonText: seasonText,
+    getQueryParam: getQueryParam
   });
 
 })();
