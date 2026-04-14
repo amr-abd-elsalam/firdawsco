@@ -602,6 +602,7 @@ var ProductDetailsApp = (function () {
     buildRelatedProducts(product);
     buildStickyCTA(product);
     buildCTA();
+    injectSEO(product, category);
   }
 
   /* ── DOMContentLoaded ── */

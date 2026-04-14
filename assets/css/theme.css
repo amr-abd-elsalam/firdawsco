@@ -24,6 +24,14 @@
   font-display: swap;
 }
 
+/* Bootstrap Icons font-display override — prevents FOIT (original uses block) */
+@font-face {
+  font-family: 'bootstrap-icons';
+  src: url('../vendor/bootstrap-icons-1.11.3/font/fonts/bootstrap-icons.woff2?dd67030699838ea613ee6dbda90effa6') format('woff2'),
+       url('../vendor/bootstrap-icons-1.11.3/font/fonts/bootstrap-icons.woff?dd67030699838ea613ee6dbda90effa6') format('woff');
+  font-display: swap;
+}
+
 /* ═══════════════════════════════════════════
    A.2 — CSS Custom Properties
    ═══════════════════════════════════════════ */
