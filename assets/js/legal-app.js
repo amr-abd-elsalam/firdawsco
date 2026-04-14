@@ -204,7 +204,7 @@ var LegalApp = (function () {
       U.el('div', { className: 'fw-legal-contact-row' }, [
         U.el('i', { className: 'bi bi-telephone-fill', aria: { hidden: 'true' } }),
         U.el('span', null, [
-          U.el('a', { href: U.sanitizeUrl('tel:+' + DATA.PHONE_NUMBER), textContent: '+20 1010018811' })
+          U.el('a', { href: U.sanitizeUrl('tel:+' + DATA.PHONE_NUMBER), textContent: U.formatPhoneDisplay(DATA.PHONE_NUMBER) })
         ])
       ])
     );
@@ -218,7 +218,7 @@ var LegalApp = (function () {
             href: U.sanitizeUrl(SP.getDefaultWhatsAppUrl()),
             target: '_blank',
             rel: 'noopener noreferrer',
-            textContent: '+20 1209500578'
+            textContent: U.formatPhoneDisplay(DATA.WHATSAPP_NUMBER)
           })
         ])
       ])

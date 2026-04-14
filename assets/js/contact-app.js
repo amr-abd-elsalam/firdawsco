@@ -142,13 +142,13 @@ var ContactApp = (function () {
     var phoneLink = document.getElementById('ci-phone-link');
     if (phoneLink) {
       phoneLink.href = U.sanitizeUrl('tel:+' + DATA.PHONE_NUMBER);
-      phoneLink.textContent = '+20 1010018811';
+      phoneLink.textContent = U.formatPhoneDisplay(DATA.PHONE_NUMBER);
     }
 
     var waLink = document.getElementById('ci-whatsapp-link');
     if (waLink) {
       waLink.href = U.sanitizeUrl(SP.getDefaultWhatsAppUrl());
-      waLink.textContent = '+20 1209500578';
+      waLink.textContent = U.formatPhoneDisplay(DATA.WHATSAPP_NUMBER);
     }
 
     var emailLink = document.getElementById('ci-email-link');

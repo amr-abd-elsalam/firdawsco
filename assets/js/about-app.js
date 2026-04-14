@@ -180,7 +180,7 @@ var AboutApp = (function () {
       );
 
       card.appendChild(
-        U.el('h4', { textContent: certData.name })
+        U.el('h3', { textContent: certData.name })
       );
 
       card.appendChild(

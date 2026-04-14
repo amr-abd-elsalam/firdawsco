@@ -67,7 +67,7 @@
   --fw-bg: var(--fw-white);
   --fw-bg-alt: var(--fw-gray-50);
   --fw-text: var(--fw-gray-800);
-  --fw-text-muted: var(--fw-gray-500);
+  --fw-text-muted: var(--fw-gray-600);
   --fw-border: var(--fw-gray-200);
 
   /* Category Colors — match DATA.categories[].color */
@@ -235,9 +235,9 @@ a:hover {
   gap: 0.5rem;
   padding: 0.625rem 1.5rem;
   background-color: transparent;
-  color: var(--fw-primary);
+  color: var(--fw-green-700);
   font-weight: 600;
-  border: 2px solid var(--fw-primary);
+  border: 2px solid var(--fw-green-700);
   border-radius: var(--fw-radius);
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
@@ -245,7 +245,7 @@ a:hover {
 
 .fw-btn-outline:hover,
 .fw-btn-outline:focus {
-  background-color: var(--fw-primary);
+  background-color: var(--fw-green-700);
   color: var(--fw-white);
   box-shadow: var(--fw-shadow-md);
 }
@@ -573,7 +573,7 @@ a:hover {
   object-fit: contain;
 }
 
-.fw-cert-card h4 {
+.fw-cert-card h3 {
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -618,7 +618,7 @@ a:hover {
 }
 
 .fw-cta-text {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 1.1rem;
   max-width: 600px;
   margin-left: auto;
@@ -1688,7 +1688,7 @@ a:hover {
 }
 
 .fw-hero .fw-hero-subtitle {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .fw-hero .fw-btn-primary {
@@ -1743,6 +1743,11 @@ a:hover {
 
 .fw-hero--compact::before {
   background: radial-gradient(circle, rgba(22, 163, 74, 0.08) 0%, transparent 70%);
+}
+
+/* Home hero — set background image via CSS for faster LCP */
+.fw-hero--home {
+  --fw-hero-bg: url(../img/hero-bg.webp);
 }
 
 /* Products catalog header — no hero section, plain section */

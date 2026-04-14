@@ -171,6 +171,20 @@ var Utils = (function () {
     return s;
   }
 
+  /* ── Phone Display Formatting ── */
+
+  /**
+   * Format an international phone number for display.
+   * formatPhoneDisplay('201010018811') → '+20 1010018811'
+   * @param {string} intlNumber — digits only, e.g. '201010018811'
+   * @returns {string}
+   */
+  function formatPhoneDisplay(intlNumber) {
+    if (!intlNumber) return '';
+    var s = String(intlNumber);
+    return '+' + s.substring(0, 2) + ' ' + s.substring(2);
+  }
+
   /* ── Bilingual Helpers ── */
 
   /**
@@ -278,6 +292,7 @@ var Utils = (function () {
     formatNumber: formatNumber,
     formatNumberAr: formatNumberAr,
     formatYear: formatYear,
+    formatPhoneDisplay: formatPhoneDisplay,
     getLang: getLang,
     t: t,
     isInSeason: isInSeason,

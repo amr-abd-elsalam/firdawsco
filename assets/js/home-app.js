@@ -46,12 +46,6 @@ var HomeApp = (function () {
   function buildHero() {
     var lang = U.getLang();
 
-    /* Set hero background image via CSS variable */
-    var heroSection = document.getElementById('hero-section');
-    if (heroSection && META.heroImage) {
-      heroSection.style.setProperty('--fw-hero-bg', 'url(' + U.sanitizeUrl(META.heroImage) + ')');
-    }
-
     SP.setTextById('hero-heading', U.t(META.hero.title, lang));
     SP.setTextById('hero-subtitle', U.t(META.hero.subtitle, lang));
 
@@ -464,7 +458,7 @@ var HomeApp = (function () {
       );
 
       card.appendChild(
-        U.el('h4', { textContent: certData.name })
+        U.el('h3', { textContent: certData.name })
       );
 
       card.appendChild(

@@ -344,6 +344,7 @@ var SharedPage = (function () {
     setAttrById('og-desc', 'content', pageDesc);
     setAttrById('og-image', 'content', pageImage);
     setAttrById('og-site-name', 'content', U.t(DATA.BRAND_NAME));
+    setAttrById('og-locale', 'content', lang === 'ar' ? 'ar_EG' : 'en_US');
 
     /* Twitter Card */
     setAttrById('tw-title', 'content', pageTitle);
@@ -376,6 +377,7 @@ var SharedPage = (function () {
     var schema = {
       '@context': 'https://schema.org',
       '@type': 'Organization',
+      '@id': 'https://' + DATA.DOMAIN + '/#organization',
       name: U.t(DATA.BRAND_NAME, 'en'),
       alternateName: U.t(DATA.BRAND_NAME, 'ar'),
       url: 'https://' + DATA.DOMAIN,
@@ -393,6 +395,22 @@ var SharedPage = (function () {
       foundingDate: META.foundingYear
     };
     injectJsonLd(schema, 'schema-organization');
+  }
+
+  /* ── WebSite JSON-LD ── */
+
+  function injectWebSiteSchema() {
+    var schema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      '@id': 'https://' + DATA.DOMAIN + '/#website',
+      name: U.t(DATA.BRAND_NAME, 'en'),
+      alternateName: U.t(DATA.BRAND_NAME, 'ar'),
+      url: 'https://' + DATA.DOMAIN,
+      inLanguage: ['en', 'ar'],
+      publisher: { '@id': 'https://' + DATA.DOMAIN + '/#organization' }
+    };
+    injectJsonLd(schema, 'schema-website');
   }
 
   /* ── FAQ JSON-LD ── */
@@ -478,6 +496,7 @@ var SharedPage = (function () {
     buildBackToTop();
     injectBaseSEO(config);
     injectOrganizationSchema();
+    injectWebSiteSchema();
 
     if (config.navMatchFn) {
       markCurrentNavLink(config.navMatchFn);
@@ -520,6 +539,7 @@ var SharedPage = (function () {
     injectBaseSEO: injectBaseSEO,
     injectJsonLd: injectJsonLd,
     injectOrganizationSchema: injectOrganizationSchema,
+    injectWebSiteSchema: injectWebSiteSchema,
     injectFaqSchema: injectFaqSchema,
     markCurrentNavLink: markCurrentNavLink,
 
