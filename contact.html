@@ -41,6 +41,7 @@
                  img-src 'self' data:;
                  connect-src 'self';
                  form-action 'none';
+                 frame-ancestors 'none';
                  manifest-src 'self';">
 
   <!-- Font Preload -->
@@ -66,7 +67,7 @@
 <body>
 
   <!-- Skip Link -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link" id="skip-link">Skip to main content</a>
 
   <!-- ═══════════════════════════════════════════
        NAVBAR
@@ -170,7 +171,7 @@
                 <div class="col-12">
                   <label for="cf-product" class="form-label" id="cf-product-label">Product of Interest</label>
                   <select class="form-select" id="cf-product">
-                    <option value="" id="cf-product-placeholder">Select a product…</option>
+                    <option value="">Select a product…</option>
                     <!-- Product options built dynamically by contact-app.js -->
                   </select>
                 </div>

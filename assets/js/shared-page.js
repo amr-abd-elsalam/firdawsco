@@ -85,6 +85,9 @@ var SharedPage = (function () {
     setTextById('nav-products', U.t(META.nav.products));
     setTextById('nav-about', U.t(META.nav.about));
     setTextById('nav-contact', U.t(META.nav.contact));
+
+    var toggler = U.qs('.navbar-toggler');
+    if (toggler) toggler.setAttribute('aria-label', U.t(META.nav.toggleNav));
   }
 
   /* ── Language Switcher ── */
@@ -140,6 +143,9 @@ var SharedPage = (function () {
     buildFooter();
     buildWhatsAppFloat();
     updateBackToTopLabel();
+
+    /* Update skip link text */
+    setTextById('skip-link', U.t(META.skipLink, lang));
 
     /* (f) Call page-specific refresh */
     if (typeof _pageRefreshCallback === 'function') {
@@ -221,13 +227,9 @@ var SharedPage = (function () {
 
   /* ── Footer Contact Text ── */
 
-  function _formatPhoneDisplay(intlNumber) {
-    return '+' + intlNumber.substring(0, 2) + ' ' + intlNumber.substring(2);
-  }
-
   function buildFooterContactText() {
-    setTextById('footer-phone-link', _formatPhoneDisplay(DATA.PHONE_NUMBER));
-    setTextById('footer-whatsapp-link', _formatPhoneDisplay(DATA.WHATSAPP_NUMBER));
+    setTextById('footer-phone-link', U.formatPhoneDisplay(DATA.PHONE_NUMBER));
+    setTextById('footer-whatsapp-link', U.formatPhoneDisplay(DATA.WHATSAPP_NUMBER));
     setTextById('footer-email-link', META.supportEmail);
   }
 
@@ -392,7 +394,13 @@ var SharedPage = (function () {
       },
       telephone: '+' + DATA.PHONE_NUMBER,
       email: META.supportEmail,
-      foundingDate: META.foundingYear
+      foundingDate: META.foundingYear,
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+' + DATA.WHATSAPP_NUMBER,
+        contactType: 'sales',
+        availableLanguage: ['English', 'Arabic']
+      }
     };
     injectJsonLd(schema, 'schema-organization');
   }

@@ -316,6 +316,15 @@ var HomeApp = (function () {
     if (thead) {
       U.clearChildren(thead);
 
+      /* Caption */
+      var table = thead.closest('table');
+      if (table) {
+        var oldCaption = table.querySelector('caption');
+        if (oldCaption) table.removeChild(oldCaption);
+        var caption = U.el('caption', { textContent: U.t(META.seasonCalendar.caption, lang) });
+        table.insertBefore(caption, table.firstChild);
+      }
+
       var headerRow = U.el('tr');
 
       /* Product column header */
@@ -614,6 +623,9 @@ var HomeApp = (function () {
 
     /* Inject FAQ JSON-LD */
     SP.injectFaqSchema();
+
+    /* Ensure page-specific SEO is applied on initial load */
+    injectSEO();
   }
 
   /* ── DOMContentLoaded ── */

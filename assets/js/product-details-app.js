@@ -494,6 +494,9 @@ var ProductDetailsApp = (function () {
       pageImage: imageUrl
     });
 
+    /* Set og:type to product (default in HTML is "website") */
+    SP.setAttrById('og-type', 'content', 'product');
+
     /* Product JSON-LD (always English) */
     SP.injectJsonLd({
       '@context': 'https://schema.org',

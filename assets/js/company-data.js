@@ -1036,7 +1036,8 @@ var COMPANY_DATA = (function () {
       products: { en: 'Products',   ar: 'المنتجات' },
       about:    { en: 'About Us',   ar: 'من نحن' },
       contact:  { en: 'Contact',    ar: 'تواصل معنا' },
-      quote:    { en: 'Get a Quote', ar: 'طلب عرض سعر' }
+      quote:    { en: 'Get a Quote', ar: 'طلب عرض سعر' },
+      toggleNav: { en: 'Toggle navigation', ar: 'فتح/إغلاق القائمة' }
     },
 
     hero: {
@@ -1072,7 +1073,8 @@ var COMPANY_DATA = (function () {
         en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         ar: ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر']
       },
-      yearRound: { en: 'Year-round', ar: 'طوال السنة' }
+      yearRound: { en: 'Year-round', ar: 'طوال السنة' },
+      caption: { en: 'Product availability by month', ar: 'توافر المنتجات حسب الشهر' }
     },
 
     certificationsSection: {
@@ -1200,6 +1202,11 @@ var COMPANY_DATA = (function () {
     backToTop: {
       en: 'Back to top',
       ar: 'العودة للأعلى'
+    },
+
+    skipLink: {
+      en: 'Skip to main content',
+      ar: 'انتقل إلى المحتوى الرئيسي'
     },
 
     legalPage: {

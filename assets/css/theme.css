@@ -175,7 +175,7 @@ a:hover {
 }
 
 .fw-brand:hover {
-  color: var(--fw-primary);
+  color: var(--fw-green-700);
 }
 
 .fw-brand-logo {
@@ -194,12 +194,12 @@ a:hover {
 
 .fw-navbar .nav-link:hover,
 .fw-navbar .nav-link:focus {
-  color: var(--fw-primary);
+  color: var(--fw-green-700);
   background-color: var(--fw-primary-light);
 }
 
 .fw-navbar .nav-link[aria-current="page"] {
-  color: var(--fw-primary);
+  color: var(--fw-green-800);
   font-weight: 600;
 }
 

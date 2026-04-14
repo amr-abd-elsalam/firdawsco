@@ -13,7 +13,7 @@
   <link rel="canonical" id="page-canonical" href="https://firdawsco.com/products/details/">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
+  <meta property="og:type" id="og-type" content="website">
   <meta property="og:url" id="og-url" content="https://firdawsco.com/products/details/">
   <meta property="og:title" id="og-title" content="Product Details — Firdaws Import &amp; Export Co.">
   <meta property="og:description" id="og-desc" content="Detailed specifications, packaging options, and certifications for premium Egyptian agricultural products.">
@@ -41,6 +41,7 @@
                  img-src 'self' data:;
                  connect-src 'self';
                  form-action 'none';
+                 frame-ancestors 'none';
                  manifest-src 'self';">
 
   <!-- Font Preload -->
@@ -66,7 +67,7 @@
 <body>
 
   <!-- Skip Link -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link" id="skip-link">Skip to main content</a>
 
   <!-- ═══════════════════════════════════════════
        NAVBAR
@@ -137,7 +138,7 @@
 
         <div class="row g-4 align-items-start">
           <div class="col-12 col-md-6">
-            <img id="pd-image" class="fw-product-hero-img" src="" alt="" loading="lazy" width="600" height="450">
+            <img id="pd-image" class="fw-product-hero-img" src="" alt="" loading="eager" fetchpriority="high" width="600" height="450">
           </div>
           <div class="col-12 col-md-6">
             <span id="pd-season-badge" class="fw-product-badge fw-badge-season d-none">In Season</span>
