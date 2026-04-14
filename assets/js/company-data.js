@@ -24,7 +24,7 @@ var COMPANY_DATA = (function () {
   var categories = [
     {
       id: 'citrus',
-      icon: 'bi-sun',
+      icon: 'bi-sun-fill',
       color: 'orange',
       image: './assets/img/categories/citrus.webp',
       en: { name: 'Citrus Fruits', desc: 'Premium Egyptian citrus — navel oranges, Valencia oranges, mandarins, and lemons — grown in the fertile Nile Delta and exported worldwide.' },
@@ -32,7 +32,7 @@ var COMPANY_DATA = (function () {
     },
     {
       id: 'fresh-fruits',
-      icon: 'bi-tree',
+      icon: 'bi-tree-fill',
       color: 'emerald',
       image: './assets/img/categories/fresh-fruits.webp',
       en: { name: 'Fresh Fruits', desc: 'Hand-picked fresh fruits including table grapes, strawberries, pomegranates, mangoes, guavas, and watermelons — naturally sweet, export-grade quality.' },
@@ -40,7 +40,7 @@ var COMPANY_DATA = (function () {
     },
     {
       id: 'fresh-vegetables',
-      icon: 'bi-flower1',
+      icon: 'bi-flower3',
       color: 'teal',
       image: './assets/img/categories/fresh-vegetables.webp',
       en: { name: 'Fresh Vegetables', desc: 'Field-fresh vegetables — potatoes, onions, garlic, sweet potatoes, green beans, bell peppers, and tomatoes — sourced from Egypt\'s prime growing regions.' },
@@ -48,7 +48,7 @@ var COMPANY_DATA = (function () {
     },
     {
       id: 'frozen',
-      icon: 'bi-snow',
+      icon: 'bi-snow2',
       color: 'cyan',
       image: './assets/img/categories/frozen.webp',
       en: { name: 'Frozen Products', desc: 'IQF (Individually Quick Frozen) fruits and vegetables — strawberries, green beans, and green peas — available year-round with full traceability.' },
@@ -64,7 +64,7 @@ var COMPANY_DATA = (function () {
     },
     {
       id: 'dry-goods',
-      icon: 'bi-basket',
+      icon: 'bi-basket-fill',
       color: 'amber',
       image: './assets/img/categories/dry-goods.webp',
       en: { name: 'Dry Goods & Grains', desc: 'Premium dried legumes and grains — white beans and other pulses — carefully sorted, cleaned, and packed for bulk export.' },
