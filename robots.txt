@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
-Disallow: /assets/
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /assets/fonts/
+Disallow: /assets/vendor/
 Disallow: /404.html
 
 Sitemap: https://firdawsco.com/sitemap.xml

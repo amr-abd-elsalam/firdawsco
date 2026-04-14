@@ -39,6 +39,44 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- ── Product Categories (6) ── -->
+  <url>
+    <loc>https://firdawsco.com/products/?category=citrus</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://firdawsco.com/products/?category=fresh-fruits</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://firdawsco.com/products/?category=fresh-vegetables</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://firdawsco.com/products/?category=frozen</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://firdawsco.com/products/?category=herbs-spices</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://firdawsco.com/products/?category=dry-goods</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- ── Citrus Products (4) ── -->
   <url>
     <loc>https://firdawsco.com/products/details/?id=navel-orange</loc>

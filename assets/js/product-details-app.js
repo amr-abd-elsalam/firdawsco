@@ -246,6 +246,14 @@ var ProductDetailsApp = (function () {
 
     U.clearChildren(tbody);
 
+    var table = tbody.closest('table');
+    if (table) {
+      var oldCaption = table.querySelector('caption');
+      if (oldCaption) table.removeChild(oldCaption);
+      var caption = U.el('caption', { textContent: prodData.name + ' \u2014 ' + U.t(META.productDetails.specifications, lang) });
+      table.insertBefore(caption, table.firstChild);
+    }
+
     var rows = [
       { label: META.productDetails.caliber, value: prodData.specs.caliber },
       { label: META.productDetails.brix,    value: prodData.specs.brix },

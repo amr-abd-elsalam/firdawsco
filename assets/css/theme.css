@@ -1677,18 +1677,37 @@ a:hover {
  */
 
 .fw-hero {
-  background-image:
-    linear-gradient(
-      135deg,
-      rgba(20, 83, 45, 0.88) 0%,
-      rgba(22, 101, 52, 0.82) 40%,
-      rgba(21, 128, 61, 0.75) 100%
-    ),
-    var(--fw-hero-bg, none);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: var(--fw-green-800);
   padding: 6rem 0 5rem;
+}
+
+.fw-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 83, 45, 0.88) 0%,
+    rgba(22, 101, 52, 0.82) 40%,
+    rgba(21, 128, 61, 0.75) 100%
+  );
+  pointer-events: none;
+}
+
+.fw-hero > .container {
+  position: relative;
+  z-index: 2;
+}
+
+.fw-hero__bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .fw-hero .fw-hero-title {
@@ -1736,9 +1755,12 @@ a:hover {
  * Must override the dark hero styles back to light palette.
  */
 .fw-hero--compact {
-  background-image: none;
   background-color: var(--fw-primary-light);
   padding: 3rem 0 2.5rem;
+}
+
+.fw-hero--compact::after {
+  display: none;
 }
 
 .fw-hero--compact .fw-hero-title {
@@ -1753,10 +1775,6 @@ a:hover {
   background: radial-gradient(circle, rgba(22, 163, 74, 0.08) 0%, transparent 70%);
 }
 
-/* Home hero — set background image via CSS for faster LCP */
-.fw-hero--home {
-  --fw-hero-bg: url(../img/hero-bg.webp);
-}
 
 /* Products catalog header — no hero section, plain section */
 .fw-section .fw-hero-title {

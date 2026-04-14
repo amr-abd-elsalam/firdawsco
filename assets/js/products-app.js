@@ -358,6 +358,7 @@ var ProductsApp = (function () {
     buildFilterBar();
     buildProductsGrid();
     buildCTA();
+    injectSEO();
   }
 
   /* ── DOMContentLoaded ── */
