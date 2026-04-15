@@ -180,7 +180,7 @@ var ProductsApp = (function () {
     card.appendChild(
       U.el('img', {
         src:     U.sanitizeUrl(fixImgPath(product.image)),
-        alt:     prodData.name,
+        alt:     product.altText ? U.t(product.altText, lang) : prodData.name,
         loading: 'lazy',
         decoding: 'async',
         width:   '400',

@@ -171,7 +171,7 @@ var AboutApp = (function () {
       card.appendChild(
         U.el('img', {
           src:       U.sanitizeUrl(cert.logo),
-          alt:       certData.name,
+          alt:       cert.altText ? U.t(cert.altText, lang) : certData.name,
           className: 'fw-cert-logo',
           loading:   'lazy',
           decoding:  'async',

@@ -126,7 +126,7 @@ var HomeApp = (function () {
       frag.appendChild(
         U.el('img', {
           src:     U.sanitizeUrl(cert.logo),
-          alt:     certName,
+          alt:     cert.altText ? U.t(cert.altText, lang) : certName,
           loading: 'lazy',
           decoding: 'async',
           width:   '80',
@@ -170,7 +170,7 @@ var HomeApp = (function () {
           U.el('img', {
             className: 'fw-cat-card-img',
             src: U.sanitizeUrl(cat.image),
-            alt: catData.name,
+            alt: cat.altText ? U.t(cat.altText, lang) : catData.name,
             loading: 'lazy',
             decoding: 'async',
             width: '600',
@@ -248,7 +248,7 @@ var HomeApp = (function () {
       card.appendChild(
         U.el('img', {
           src:     U.sanitizeUrl(product.image),
-          alt:     prodData.name,
+          alt:     product.altText ? U.t(product.altText, lang) : prodData.name,
           loading: 'lazy',
           decoding: 'async',
           width:   '400',
@@ -461,7 +461,7 @@ var HomeApp = (function () {
       card.appendChild(
         U.el('img', {
           src:       U.sanitizeUrl(cert.logo),
-          alt:       certData.name,
+          alt:       cert.altText ? U.t(cert.altText, lang) : certData.name,
           className: 'fw-cert-logo',
           loading:   'lazy',
           decoding:  'async',

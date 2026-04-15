@@ -192,7 +192,7 @@ var ProductDetailsApp = (function () {
     var imgEl = document.getElementById('pd-image');
     if (imgEl) {
       imgEl.setAttribute('src', U.sanitizeUrl(fixImgPath(product.image)));
-      imgEl.setAttribute('alt', prodData.name);
+      imgEl.setAttribute('alt', product.altText ? U.t(product.altText, lang) : prodData.name);
     }
 
     /* Season badge */
@@ -327,7 +327,7 @@ var ProductDetailsApp = (function () {
       card.appendChild(
         U.el('img', {
           src:       U.sanitizeUrl(fixImgPath(cert.logo)),
-          alt:       certData.name,
+          alt:       cert.altText ? U.t(cert.altText, lang) : certData.name,
           className: 'fw-cert-logo',
           loading:   'lazy',
           decoding:  'async',
@@ -381,7 +381,7 @@ var ProductDetailsApp = (function () {
       card.appendChild(
         U.el('img', {
           src:     U.sanitizeUrl(fixImgPath(rel.image)),
-          alt:     relData.name,
+          alt:     rel.altText ? U.t(rel.altText, lang) : relData.name,
           loading: 'lazy',
           decoding: 'async',
           width:   '400',

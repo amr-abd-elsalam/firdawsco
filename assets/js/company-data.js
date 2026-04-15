@@ -28,7 +28,11 @@ var COMPANY_DATA = (function () {
       color: 'orange',
       image: './assets/img/categories/citrus.webp',
       en: { name: 'Citrus Fruits', desc: 'Premium Egyptian citrus — navel oranges, Valencia oranges, mandarins, and lemons — grown in the fertile Nile Delta and exported worldwide.' },
-      ar: { name: 'حمضيات', desc: 'حمضيات مصرية ممتازة — برتقال أبو سرة وفالنسيا ويوسفي وليمون — من أراضي دلتا النيل الخصبة للتصدير العالمي.' }
+      ar: { name: 'حمضيات', desc: 'حمضيات مصرية ممتازة — برتقال أبو سرة وفالنسيا ويوسفي وليمون — من أراضي دلتا النيل الخصبة للتصدير العالمي.' },
+      altText: {
+        en: 'Assortment of premium Egyptian citrus fruits including navel oranges, Valencia oranges, mandarins, and lemons',
+        ar: 'تشكيلة من الحمضيات المصرية الممتازة تشمل برتقال أبو سرة وفالنسيا ويوسفي وليمون'
+      }
     },
     {
       id: 'fresh-fruits',
@@ -36,7 +40,11 @@ var COMPANY_DATA = (function () {
       color: 'emerald',
       image: './assets/img/categories/fresh-fruits.webp',
       en: { name: 'Fresh Fruits', desc: 'Hand-picked fresh fruits including table grapes, strawberries, pomegranates, mangoes, guavas, and watermelons — naturally sweet, export-grade quality.' },
-      ar: { name: 'فاكهة طازجة', desc: 'فواكه طازجة مختارة يدوياً تشمل عنب وفراولة ورمان ومانجو وجوافة وبطيخ — حلاوة طبيعية وجودة تصديرية.' }
+      ar: { name: 'فاكهة طازجة', desc: 'فواكه طازجة مختارة يدوياً تشمل عنب وفراولة ورمان ومانجو وجوافة وبطيخ — حلاوة طبيعية وجودة تصديرية.' },
+      altText: {
+        en: 'Fresh Egyptian fruits including grapes, strawberries, pomegranates, mangoes, guavas, and watermelons',
+        ar: 'فواكه مصرية طازجة تشمل عنب وفراولة ورمان ومانجو وجوافة وبطيخ'
+      }
     },
     {
       id: 'fresh-vegetables',
@@ -44,7 +52,11 @@ var COMPANY_DATA = (function () {
       color: 'teal',
       image: './assets/img/categories/fresh-vegetables.webp',
       en: { name: 'Fresh Vegetables', desc: 'Field-fresh vegetables — potatoes, onions, garlic, sweet potatoes, green beans, bell peppers, and tomatoes — sourced from Egypt\'s prime growing regions.' },
-      ar: { name: 'خضروات طازجة', desc: 'خضروات طازجة من الحقل — بطاطس وبصل وثوم وبطاطا حلوة وفاصوليا خضراء وفلفل رومي وطماطم — من أجود مناطق الزراعة في مصر.' }
+      ar: { name: 'خضروات طازجة', desc: 'خضروات طازجة من الحقل — بطاطس وبصل وثوم وبطاطا حلوة وفاصوليا خضراء وفلفل رومي وطماطم — من أجود مناطق الزراعة في مصر.' },
+      altText: {
+        en: 'Fresh Egyptian vegetables including potatoes, onions, garlic, sweet potatoes, green beans, and peppers',
+        ar: 'خضروات مصرية طازجة تشمل بطاطس وبصل وثوم وبطاطا حلوة وفاصوليا خضراء وفلفل'
+      }
     },
     {
       id: 'frozen',
@@ -52,7 +64,11 @@ var COMPANY_DATA = (function () {
       color: 'cyan',
       image: './assets/img/categories/frozen.webp',
       en: { name: 'Frozen Products', desc: 'IQF (Individually Quick Frozen) fruits and vegetables — strawberries, green beans, and green peas — available year-round with full traceability.' },
-      ar: { name: 'منتجات مجمدة', desc: 'فواكه وخضروات مجمدة بتقنية IQF (التجميد السريع الفردي) — فراولة وفاصوليا خضراء وبسلة — متاحة طوال العام مع تتبع كامل.' }
+      ar: { name: 'منتجات مجمدة', desc: 'فواكه وخضروات مجمدة بتقنية IQF (التجميد السريع الفردي) — فراولة وفاصوليا خضراء وبسلة — متاحة طوال العام مع تتبع كامل.' },
+      altText: {
+        en: 'IQF frozen Egyptian products — individually quick frozen strawberries, green beans, and green peas',
+        ar: 'منتجات مصرية مجمدة بتقنية IQF — فراولة وفاصوليا خضراء وبسلة مجمدة سريعاً بشكل فردي'
+      }
     },
     {
       id: 'herbs-spices',
@@ -60,7 +76,11 @@ var COMPANY_DATA = (function () {
       color: 'lime',
       image: './assets/img/categories/herbs-spices.webp',
       en: { name: 'Herbs & Spices', desc: 'Aromatic Egyptian herbs and spices — fresh basil and dried chamomile — cultivated under optimal conditions for maximum flavor and purity.' },
-      ar: { name: 'أعشاب وتوابل', desc: 'أعشاب وتوابل مصرية عطرية — ريحان طازج وبابونج مجفف — مزروعة في ظروف مثالية لأقصى نكهة ونقاء.' }
+      ar: { name: 'أعشاب وتوابل', desc: 'أعشاب وتوابل مصرية عطرية — ريحان طازج وبابونج مجفف — مزروعة في ظروف مثالية لأقصى نكهة ونقاء.' },
+      altText: {
+        en: 'Egyptian herbs and spices — fresh green basil and dried golden chamomile flowers',
+        ar: 'أعشاب وتوابل مصرية — ريحان أخضر طازج وزهور بابونج ذهبية مجففة'
+      }
     },
     {
       id: 'dry-goods',
@@ -68,7 +88,11 @@ var COMPANY_DATA = (function () {
       color: 'amber',
       image: './assets/img/categories/dry-goods.webp',
       en: { name: 'Dry Goods & Grains', desc: 'Premium dried legumes and grains — white beans and other pulses — carefully sorted, cleaned, and packed for bulk export.' },
-      ar: { name: 'حبوب وبقوليات', desc: 'بقوليات وحبوب مجففة ممتازة — فاصوليا بيضاء وبقوليات أخرى — مفرزة ومنظفة ومعبأة بعناية للتصدير بالجملة.' }
+      ar: { name: 'حبوب وبقوليات', desc: 'بقوليات وحبوب مجففة ممتازة — فاصوليا بيضاء وبقوليات أخرى — مفرزة ومنظفة ومعبأة بعناية للتصدير بالجملة.' },
+      altText: {
+        en: 'Egyptian dried white beans and pulses — sorted, cleaned, and ready for bulk export',
+        ar: 'فاصوليا بيضاء وبقوليات مصرية مجففة — مفرزة ومنظفة وجاهزة للتصدير بالجملة'
+      }
     }
   ];
 
@@ -106,6 +130,10 @@ var COMPANY_DATA = (function () {
           brix: '١١–١٤° بريكس',
           color: 'برتقالي غامق، موحد اللون'
         }
+      },
+      altText: {
+        en: 'Fresh Egyptian navel oranges with deep orange color, one cut in half showing seedless juicy flesh',
+        ar: 'برتقال أبو سرة مصري طازج بلون برتقالي غامق، واحدة مقطوعة نصفين تُظهر اللب العصيري الخالي من البذور'
       }
     },
     {
@@ -138,6 +166,10 @@ var COMPANY_DATA = (function () {
           brix: '١٢–١٥° بريكس',
           color: 'برتقالي فاتح، قشرة ناعمة'
         }
+      },
+      altText: {
+        en: 'Egyptian Valencia oranges for juicing with smooth bright orange skin, one cut showing abundant juice',
+        ar: 'برتقال فالنسيا مصري للعصير بقشرة برتقالية ناعمة لامعة، واحدة مقطوعة تُظهر العصير الوفير'
       }
     },
     {
@@ -170,6 +202,10 @@ var COMPANY_DATA = (function () {
           brix: '١٠–١٣° بريكس',
           color: 'برتقالي غامق، لامع'
         }
+      },
+      altText: {
+        en: 'Glossy deep orange Egyptian mandarins, one partially peeled showing easy-peel segments',
+        ar: 'يوسفي مصري لامع بلون برتقالي غامق، واحدة مقشرة جزئياً تُظهر فصوصاً سهلة التقشير'
       }
     },
     {
@@ -202,6 +238,10 @@ var COMPANY_DATA = (function () {
           brix: '٦–٨° بريكس',
           color: 'أصفر زاهي، موحد اللون'
         }
+      },
+      altText: {
+        en: 'Bright yellow Egyptian Adalia lemons with uniform smooth skin, one cut in half showing juicy flesh',
+        ar: 'ليمون أضاليا مصري أصفر زاهي بقشرة ناعمة موحدة، واحدة مقطوعة نصفين تُظهر اللب العصيري'
       }
     },
 
@@ -236,6 +276,10 @@ var COMPANY_DATA = (function () {
           brix: '١٦–٢٠° بريكس',
           color: 'يختلف حسب الصنف: أحمر، أخضر، أو أسود'
         }
+      },
+      altText: {
+        en: 'Premium Egyptian table grapes — red Crimson Seedless and green Superior Seedless bunches with plump berries',
+        ar: 'عنب مائدة مصري ممتاز — عناقيد كريمسون سيدلس حمراء وسوبيريور سيدلس خضراء بحبات ممتلئة'
       }
     },
     {
@@ -268,6 +312,10 @@ var COMPANY_DATA = (function () {
           brix: '٧–١٠° بريكس',
           color: 'أحمر داكن، لامع'
         }
+      },
+      altText: {
+        en: 'Fresh Egyptian strawberries — large, deep red, glossy berries with bright green caps',
+        ar: 'فراولة مصرية طازجة — حبات كبيرة حمراء داكنة لامعة بأغطية خضراء زاهية'
       }
     },
     {
@@ -300,6 +348,10 @@ var COMPANY_DATA = (function () {
           brix: '١٤–١٧° بريكس',
           color: 'أحمر داكن من الخارج، حبات ياقوتية'
         }
+      },
+      altText: {
+        en: 'Egyptian pomegranates with deep red skin, one cut open revealing ruby red arils glistening with juice',
+        ar: 'رمان مصري بقشرة حمراء داكنة، واحدة مفتوحة تكشف حبات ياقوتية حمراء لامعة بالعصير'
       }
     },
     {
@@ -332,6 +384,10 @@ var COMPANY_DATA = (function () {
           brix: '١٤–٢٠° بريكس',
           color: 'أخضر إلى أصفر مع تورد حسب الصنف'
         }
+      },
+      altText: {
+        en: 'Ripe Egyptian mangoes showing green to yellow-red skin, one cut in hedgehog style showing golden fiberless flesh',
+        ar: 'مانجو مصري ناضج بقشرة خضراء إلى صفراء محمرة، واحدة مقطوعة بأسلوب القنفذ تُظهر لباً ذهبياً خالي الألياف'
       }
     },
     {
@@ -364,6 +420,10 @@ var COMPANY_DATA = (function () {
           brix: '٨–١٢° بريكس',
           color: 'أصفر مخضر من الخارج، أبيض أو وردي من الداخل'
         }
+      },
+      altText: {
+        en: 'Fresh Egyptian guavas with yellow-green skin, cut halves showing creamy white and pink flesh varieties',
+        ar: 'جوافة مصرية طازجة بقشرة صفراء مخضرة، أنصاف مقطوعة تُظهر أصناف اللب الأبيض الكريمي والوردي'
       }
     },
     {
@@ -396,6 +456,10 @@ var COMPANY_DATA = (function () {
           brix: '١٠–١٣° بريكس',
           color: 'أخضر داكن مخطط من الخارج، أحمر زاهي من الداخل'
         }
+      },
+      altText: {
+        en: 'Large Egyptian watermelon with dark green striped exterior and a cut wedge showing bright vivid red flesh',
+        ar: 'بطيخ مصري كبير بقشرة خضراء داكنة مخططة وقطعة مقطوعة تُظهر لباً أحمر زاهياً'
       }
     },
 
@@ -430,6 +494,10 @@ var COMPANY_DATA = (function () {
           brix: 'غير متاح',
           color: 'لب أصفر، قشرة بنية فاتحة'
         }
+      },
+      altText: {
+        en: 'Clean premium Egyptian Spunta potatoes with smooth light brown skin, two cut in half showing yellow flesh',
+        ar: 'بطاطس سبونتا مصرية ممتازة نظيفة بقشرة بنية فاتحة ناعمة، اثنتان مقطوعتان نصفين تُظهران اللب الأصفر'
       }
     },
     {
@@ -462,6 +530,10 @@ var COMPANY_DATA = (function () {
           brix: 'غير متاح',
           color: 'ذهبي أصفر، قشرة جافة'
         }
+      },
+      altText: {
+        en: 'Egyptian golden onions with dry golden yellow papery skin, one cut showing white concentric rings',
+        ar: 'بصل ذهبي مصري بقشرة ورقية ذهبية صفراء جافة، واحدة مقطوعة تُظهر حلقات بيضاء متحدة المركز'
       }
     },
     {
@@ -494,6 +566,10 @@ var COMPANY_DATA = (function () {
           brix: 'غير متاح',
           color: 'أرجواني أحمر غامق، قشرة جافة'
         }
+      },
+      altText: {
+        en: 'Egyptian red onions with deep purple-red dry skin, one cut revealing purple and white ring pattern',
+        ar: 'بصل أحمر مصري بقشرة أرجوانية حمراء جافة، واحدة مقطوعة تكشف نمط حلقات أرجوانية وبيضاء'
       }
     },
     {
@@ -526,6 +602,10 @@ var COMPANY_DATA = (function () {
           brix: 'غير متاح',
           color: 'أبيض إلى أبيض مائل للكريمي، قشرة محكمة'
         }
+      },
+      altText: {
+        en: 'Fresh Egyptian white garlic bulbs with tight papery skin, one broken open showing individual cloves',
+        ar: 'رؤوس ثوم مصري أبيض طازج بقشرة ورقية محكمة، واحدة مفتوحة تُظهر الفصوص الفردية'
       }
     },
     {
@@ -558,6 +638,10 @@ var COMPANY_DATA = (function () {
           brix: '١٢–١٦° بريكس',
           color: 'لب برتقالي، قشرة بنية محمرة'
         }
+      },
+      altText: {
+        en: 'Egyptian Beauregard sweet potatoes with reddish-brown skin, one cut in half showing vibrant orange flesh',
+        ar: 'بطاطا حلوة مصرية بوريجارد بقشرة بنية محمرة، واحدة مقطوعة نصفين تُظهر لباً برتقالياً نابضاً بالحياة'
       }
     },
     {
@@ -590,6 +674,10 @@ var COMPANY_DATA = (function () {
           brix: 'غير متاح',
           color: 'أخضر زاهي، موحد'
         }
+      },
+      altText: {
+        en: 'Bright green fresh Egyptian French beans — slender uniform pods, some snapped showing clean crisp break',
+        ar: 'فاصوليا خضراء مصرية فرنسية طازجة زاهية — قرون رفيعة متجانسة، بعضها مكسور يُظهر قرمشة نظيفة'
       }
     },
     {
@@ -622,6 +710,10 @@ var COMPANY_DATA = (function () {
           brix: '٥–٨° بريكس',
           color: 'أخضر، أحمر، أصفر، أو برتقالي'
         }
+      },
+      altText: {
+        en: 'Colorful Egyptian bell peppers in red, yellow, green, and orange with thick glossy walls',
+        ar: 'فلفل رومي مصري ملون بالأحمر والأصفر والأخضر والبرتقالي بجدران سميكة لامعة'
       }
     },
     {
@@ -654,6 +746,10 @@ var COMPANY_DATA = (function () {
           brix: '٤–٧° بريكس',
           color: 'أحمر فاتح إلى أحمر داكن'
         }
+      },
+      altText: {
+        en: 'Fresh Egyptian tomatoes — vine-ripened cluster, Roma, and cherry varieties showing rich red color',
+        ar: 'طماطم مصرية طازجة — عنقودية ناضجة على الكرمة وروما وشيري بلون أحمر غني'
       }
     },
 
@@ -688,6 +784,10 @@ var COMPANY_DATA = (function () {
           brix: '٧–٩° بريكس (قبل التجميد)',
           color: 'أحمر داكن، طبيعي'
         }
+      },
+      altText: {
+        en: 'IQF frozen Egyptian strawberries — individually frozen whole berries with ice crystals on deep red surface',
+        ar: 'فراولة مصرية مجمدة بتقنية IQF — حبات كاملة مجمدة فردياً مع بلورات ثلج على سطح أحمر داكن'
       }
     },
     {
@@ -720,6 +820,10 @@ var COMPANY_DATA = (function () {
           brix: 'غير متاح',
           color: 'أخضر زاهي، طبيعي'
         }
+      },
+      altText: {
+        en: 'IQF frozen Egyptian green beans — cut pieces individually frozen with vivid green color preserved',
+        ar: 'فاصوليا خضراء مصرية مجمدة بتقنية IQF — قطع مقطعة مجمدة فردياً مع الحفاظ على اللون الأخضر الزاهي'
       }
     },
     {
@@ -752,6 +856,10 @@ var COMPANY_DATA = (function () {
           brix: 'غير متاح',
           color: 'أخضر زاهي، موحد'
         }
+      },
+      altText: {
+        en: 'IQF frozen Egyptian green peas — uniform small round peas individually frozen with natural green color',
+        ar: 'بسلة خضراء مصرية مجمدة بتقنية IQF — حبات صغيرة مستديرة متجانسة مجمدة فردياً بلون أخضر طبيعي'
       }
     },
 
@@ -786,6 +894,10 @@ var COMPANY_DATA = (function () {
           brix: 'غير متاح',
           color: 'أخضر زاهي، عطري'
         }
+      },
+      altText: {
+        en: 'Fresh Egyptian sweet basil Genovese — lush bunch of vibrant green aromatic leaves',
+        ar: 'ريحان حلو مصري طازج جنوفيزي — باقة غنية من أوراق خضراء زاهية عطرية'
       }
     },
     {
@@ -818,6 +930,10 @@ var COMPANY_DATA = (function () {
           brix: 'غير متاح',
           color: 'ذهبي أصفر مع بتلات بيضاء'
         }
+      },
+      altText: {
+        en: 'Dried Egyptian chamomile flowers — golden yellow blooms with white petals on a light surface',
+        ar: 'زهور بابونج مصري مجفف — أزهار ذهبية صفراء مع بتلات بيضاء على سطح فاتح'
       }
     },
 
@@ -852,6 +968,10 @@ var COMPANY_DATA = (function () {
           brix: 'غير متاح',
           color: 'أبيض إلى كريمي، موحد'
         }
+      },
+      altText: {
+        en: 'Egyptian dried white navy beans — uniform white to cream colored beans in a burlap sack',
+        ar: 'فاصوليا بيضاء مصرية مجففة نيفي — حبات موحدة بيضاء إلى كريمية في كيس خيش'
       }
     }
   ];
@@ -863,31 +983,51 @@ var COMPANY_DATA = (function () {
       id: 'globalgap',
       logo: './assets/img/certifications/globalgap.webp',
       en: { name: 'GlobalGAP', desc: 'Good Agricultural Practices certification ensuring food safety, sustainability, and traceability from farm to fork.' },
-      ar: { name: 'جلوبال جاب', desc: 'شهادة الممارسات الزراعية الجيدة التي تضمن سلامة الغذاء والاستدامة والتتبع من المزرعة إلى المائدة.' }
+      ar: { name: 'جلوبال جاب', desc: 'شهادة الممارسات الزراعية الجيدة التي تضمن سلامة الغذاء والاستدامة والتتبع من المزرعة إلى المائدة.' },
+      altText: {
+        en: 'GlobalGAP certification badge — Good Agricultural Practices',
+        ar: 'شارة شهادة جلوبال جاب — الممارسات الزراعية الجيدة'
+      }
     },
     {
       id: 'iso22000',
       logo: './assets/img/certifications/iso22000.webp',
       en: { name: 'ISO 22000', desc: 'International food safety management system standard, ensuring systematic identification and control of food safety hazards.' },
-      ar: { name: 'أيزو ٢٢٠٠٠', desc: 'معيار دولي لنظام إدارة سلامة الغذاء، يضمن التحديد والتحكم المنهجي في مخاطر سلامة الغذاء.' }
+      ar: { name: 'أيزو ٢٢٠٠٠', desc: 'معيار دولي لنظام إدارة سلامة الغذاء، يضمن التحديد والتحكم المنهجي في مخاطر سلامة الغذاء.' },
+      altText: {
+        en: 'ISO 22000 certification badge — Food Safety Management System',
+        ar: 'شارة شهادة أيزو ٢٢٠٠٠ — نظام إدارة سلامة الغذاء'
+      }
     },
     {
       id: 'haccp',
       logo: './assets/img/certifications/haccp.webp',
       en: { name: 'HACCP', desc: 'Hazard Analysis and Critical Control Points — a preventive approach to food safety that identifies potential hazards and controls them at critical points.' },
-      ar: { name: 'هاسب', desc: 'تحليل المخاطر ونقاط التحكم الحرجة — نهج وقائي لسلامة الغذاء يحدد المخاطر المحتملة ويتحكم فيها عند النقاط الحرجة.' }
+      ar: { name: 'هاسب', desc: 'تحليل المخاطر ونقاط التحكم الحرجة — نهج وقائي لسلامة الغذاء يحدد المخاطر المحتملة ويتحكم فيها عند النقاط الحرجة.' },
+      altText: {
+        en: 'HACCP certification badge — Hazard Analysis and Critical Control Points',
+        ar: 'شارة شهادة هاسب — تحليل المخاطر ونقاط التحكم الحرجة'
+      }
     },
     {
       id: 'fssc22000',
       logo: './assets/img/certifications/fssc22000.webp',
       en: { name: 'FSSC 22000', desc: 'Food Safety System Certification recognized by the Global Food Safety Initiative (GFSI), combining ISO 22000 with additional requirements for food manufacturing.' },
-      ar: { name: 'إف إس إس سي ٢٢٠٠٠', desc: 'شهادة نظام سلامة الغذاء المعتمدة من المبادرة العالمية لسلامة الغذاء (GFSI)، تجمع بين أيزو ٢٢٠٠٠ ومتطلبات إضافية لتصنيع الغذاء.' }
+      ar: { name: 'إف إس إس سي ٢٢٠٠٠', desc: 'شهادة نظام سلامة الغذاء المعتمدة من المبادرة العالمية لسلامة الغذاء (GFSI)، تجمع بين أيزو ٢٢٠٠٠ ومتطلبات إضافية لتصنيع الغذاء.' },
+      altText: {
+        en: 'FSSC 22000 certification badge — Food Safety System Certification',
+        ar: 'شارة شهادة إف إس إس سي ٢٢٠٠٠ — شهادة نظام سلامة الغذاء'
+      }
     },
     {
       id: 'organic',
       logo: './assets/img/certifications/organic.webp',
       en: { name: 'Organic Certified', desc: 'Certification verifying that products are grown without synthetic pesticides, fertilizers, or GMOs, following organic farming standards.' },
-      ar: { name: 'شهادة عضوي', desc: 'شهادة تثبت أن المنتجات مزروعة بدون مبيدات صناعية أو أسمدة كيميائية أو كائنات معدلة وراثياً، وفق معايير الزراعة العضوية.' }
+      ar: { name: 'شهادة عضوي', desc: 'شهادة تثبت أن المنتجات مزروعة بدون مبيدات صناعية أو أسمدة كيميائية أو كائنات معدلة وراثياً، وفق معايير الزراعة العضوية.' },
+      altText: {
+        en: 'Organic certification badge — verified organic farming standards',
+        ar: 'شارة الشهادة العضوية — معايير زراعة عضوية موثقة'
+      }
     }
   ];
 
