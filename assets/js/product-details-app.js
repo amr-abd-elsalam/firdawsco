@@ -128,6 +128,10 @@ var ProductDetailsApp = (function () {
       var link = document.getElementById('pd-not-found-link');
       if (link) link.textContent = U.t(META.productDetails.backToProducts, lang);
     }
+
+    /* Prevent search engines from indexing invalid product URLs */
+    var robotsMeta = document.querySelector('meta[name="robots"]');
+    if (robotsMeta) robotsMeta.setAttribute('content', 'noindex');
   }
 
   /* ══════════════════════════════════════════
@@ -569,15 +573,11 @@ var ProductDetailsApp = (function () {
     buildProductHero(product);
     buildSpecsTable(product);
     buildPackaging(product);
+    buildCertifications(product);
+    buildRelatedProducts(product);
+    buildStickyCTA(product);
+    buildCTA();
     injectSEO(product, category);
-
-    /* Defer below-the-fold sections to unblock first paint */
-    requestAnimationFrame(function () {
-      buildCertifications(product);
-      buildRelatedProducts(product);
-      buildStickyCTA(product);
-      buildCTA();
-    });
   }
 
   /* ══════════════════════════════════════════
@@ -612,11 +612,15 @@ var ProductDetailsApp = (function () {
     buildProductHero(product);
     buildSpecsTable(product);
     buildPackaging(product);
-    buildCertifications(product);
-    buildRelatedProducts(product);
-    buildStickyCTA(product);
-    buildCTA();
     injectSEO(product, category);
+
+    /* Defer below-the-fold sections to unblock first paint */
+    requestAnimationFrame(function () {
+      buildCertifications(product);
+      buildRelatedProducts(product);
+      buildStickyCTA(product);
+      buildCTA();
+    });
   }
 
   /* ── DOMContentLoaded ── */

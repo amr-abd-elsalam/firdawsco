@@ -208,7 +208,7 @@ var SharedPage = (function () {
     var lang = U.getLang();
 
     /* Clear existing */
-    while (container.firstChild) container.removeChild(container.firstChild);
+    U.clearChildren(container);
 
     /* Build new */
     var frag = document.createDocumentFragment();
@@ -356,6 +356,7 @@ var SharedPage = (function () {
     /* hreflang */
     setAttrById('hreflang-en', 'href', pageUrl);
     setAttrById('hreflang-ar', 'href', pageUrl);
+    setAttrById('hreflang-x-default', 'href', pageUrl);
   }
 
   /* ── JSON-LD Injection ── */
@@ -459,7 +460,7 @@ var SharedPage = (function () {
   /* ── TOC Smooth Scroll (for legal pages) ── */
 
   function initTocScroll(tocSelector) {
-    var toc = U.qs(tocSelector || '.legal-toc');
+    var toc = U.qs(tocSelector || '.fw-legal-toc');
     if (!toc) return;
 
     toc.addEventListener('click', function (e) {

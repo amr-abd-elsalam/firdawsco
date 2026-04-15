@@ -184,6 +184,12 @@ var ContactApp = (function () {
     if (!form || _formWired) return;
     _formWired = true;
 
+    /* Clear validation state on input */
+    var nameInput = document.getElementById('cf-name');
+    var emailInput = document.getElementById('cf-email');
+    if (nameInput) nameInput.addEventListener('input', function () { nameInput.classList.remove('is-invalid'); });
+    if (emailInput) emailInput.addEventListener('input', function () { emailInput.classList.remove('is-invalid'); });
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
@@ -194,6 +200,15 @@ var ContactApp = (function () {
       var email = document.getElementById('cf-email').value.trim();
       if (!name || !email) {
         U.showToast(U.t(META.contactPage.form.validation, lang), 'warning');
+
+        var nameEl = document.getElementById('cf-name');
+        var emailEl = document.getElementById('cf-email');
+        if (nameEl) { nameEl.classList.toggle('is-invalid', !name); }
+        if (emailEl) { emailEl.classList.toggle('is-invalid', !email); }
+
+        var firstInvalid = !name ? nameEl : emailEl;
+        if (firstInvalid) firstInvalid.focus();
+
         return;
       }
 
