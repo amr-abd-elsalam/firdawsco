@@ -569,11 +569,15 @@ var ProductDetailsApp = (function () {
     buildProductHero(product);
     buildSpecsTable(product);
     buildPackaging(product);
-    buildCertifications(product);
-    buildRelatedProducts(product);
-    buildStickyCTA(product);
-    buildCTA();
     injectSEO(product, category);
+
+    /* Defer below-the-fold sections to unblock first paint */
+    requestAnimationFrame(function () {
+      buildCertifications(product);
+      buildRelatedProducts(product);
+      buildStickyCTA(product);
+      buildCTA();
+    });
   }
 
   /* ══════════════════════════════════════════

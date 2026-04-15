@@ -537,7 +537,8 @@ a:hover {
   min-width: 140px;
 }
 
-.fw-calendar-table tbody td:first-child {
+.fw-calendar-table tbody td:first-child,
+.fw-calendar-table tbody th:first-child {
   text-align: start;
   font-weight: 600;
   color: var(--fw-gray-700);
@@ -1951,6 +1952,10 @@ a:hover {
   transition: color 0.2s ease;
 }
 
+.fw-product-card a:focus-visible {
+  outline-offset: -3px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fw-product-card img {
     transition: none;
@@ -2618,4 +2623,21 @@ a:hover {
 .fw-not-found-icon {
   font-size: 4rem;
   color: var(--fw-gray-300);
+}
+
+/* ═══════════════════════════════════════════
+   A.51 — Noscript Fallback
+   ═══════════════════════════════════════════ */
+
+.fw-noscript {
+  padding: 2rem;
+  text-align: center;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--fw-gray-50);
+  border: 1px solid var(--fw-border);
+  border-radius: var(--fw-radius);
+  margin: 2rem auto;
+  max-width: 600px;
+  color: var(--fw-gray-700);
+  line-height: 1.7;
 }

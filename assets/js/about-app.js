@@ -271,16 +271,20 @@ var AboutApp = (function () {
       }
     });
 
-    /* Build all page sections */
+    /* Build above-the-fold sections immediately */
     buildBreadcrumb();
     buildPageHeader();
     buildStory();
     buildMission();
     buildValues();
     buildFacilities();
-    buildCertifications();
-    buildCTA();
     injectSEO();
+
+    /* Defer below-the-fold sections to unblock first paint */
+    requestAnimationFrame(function () {
+      buildCertifications();
+      buildCTA();
+    });
   }
 
   /* ── DOMContentLoaded ── */

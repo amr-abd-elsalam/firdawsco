@@ -41,7 +41,8 @@
                  img-src 'self' data:;
                  connect-src 'self';
                  form-action 'none';
-                 manifest-src 'self';">
+                 manifest-src 'self';
+                 base-uri 'self';">
 
   <!-- Font Preload -->
   <link rel="preload" href="../assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -116,6 +117,13 @@
        MAIN CONTENT
   ═══════════════════════════════════════════ -->
   <main id="main-content">
+
+    <noscript>
+      <div class="fw-noscript">
+        <p>This website requires JavaScript. Please enable JavaScript in your browser.</p>
+        <p dir="rtl" lang="ar">يتطلب هذا الموقع تفعيل JavaScript. يرجى تفعيل JavaScript في المتصفح.</p>
+      </div>
+    </noscript>
 
     <!-- ─── Section 1: Legal Hero (Compact) + Breadcrumb ─── -->
     <section class="fw-hero fw-hero--compact" aria-labelledby="legal-heading">

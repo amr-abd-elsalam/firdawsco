@@ -402,6 +402,9 @@ var SharedPage = (function () {
         availableLanguage: ['English', 'Arabic']
       }
     };
+    if (DATA.SOCIAL_LINKS && DATA.SOCIAL_LINKS.length > 0) {
+      schema.sameAs = DATA.SOCIAL_LINKS;
+    }
     injectJsonLd(schema, 'schema-organization');
   }
 

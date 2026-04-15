@@ -215,8 +215,6 @@ var HomeApp = (function () {
   function buildFeaturedProducts() {
     var lang = U.getLang();
 
-    SP.setTextById('featured-heading', U.t(META.productsSection.inSeason, lang));
-
     var grid = document.getElementById('featured-grid');
     if (!grid) return;
 
@@ -228,11 +226,17 @@ var HomeApp = (function () {
     });
 
     /* Fallback: if none in season, use first FEATURED_MAX */
+    var isFallback = false;
     if (featured.length === 0) {
       featured = DATA.products.slice(0, FEATURED_MAX);
+      isFallback = true;
     } else {
       featured = featured.slice(0, FEATURED_MAX);
     }
+
+    SP.setTextById('featured-heading', isFallback
+      ? U.t(META.productsSection.featuredTitle, lang)
+      : U.t(META.productsSection.inSeason, lang));
 
     var frag = document.createDocumentFragment();
 
@@ -332,13 +336,13 @@ var HomeApp = (function () {
 
       /* Product column header */
       headerRow.appendChild(
-        U.el('th', { textContent: U.t(META.seasonCalendar.product, lang) })
+        U.el('th', { scope: 'col', textContent: U.t(META.seasonCalendar.product, lang) })
       );
 
       /* 12 month headers */
       for (var m = 0; m < 12; m++) {
         headerRow.appendChild(
-          U.el('th', { textContent: monthNames[m] })
+          U.el('th', { scope: 'col', textContent: monthNames[m] })
         );
       }
 
@@ -359,7 +363,7 @@ var HomeApp = (function () {
 
       /* Product name cell */
       row.appendChild(
-        U.el('td', { textContent: prodData.name })
+        U.el('th', { scope: 'row', textContent: prodData.name })
       );
 
       /* 12 month cells */
@@ -418,11 +422,12 @@ var HomeApp = (function () {
       /* Month labels row */
       var labelsRow = U.el('div', { className: 'fw-cal-m-months' });
 
+      var labelLen = lang === 'ar' ? 2 : 1;
       for (var j = 0; j < 12; j++) {
         labelsRow.appendChild(
           U.el('span', {
             className: 'fw-cal-m-month-label',
-            textContent: monthNames[j].substring(0, 1)
+            textContent: monthNames[j].substring(0, labelLen)
           })
         );
       }

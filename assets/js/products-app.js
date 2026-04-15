@@ -282,6 +282,9 @@ var ProductsApp = (function () {
 
     buildFilterBar();
     buildProductsGrid();
+
+    var gridEl = document.getElementById('products-grid');
+    if (gridEl) gridEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   /* ══════════════════════════════════════════
@@ -320,6 +323,24 @@ var ProductsApp = (function () {
         { '@type': 'ListItem', 'position': 2, 'name': U.t(META.nav.products, 'en'), 'item': baseUrl + '/products/' }
       ]
     }, 'schema-breadcrumb');
+
+    /* ItemList JSON-LD — product catalog */
+    var listItems = [];
+    for (var i = 0; i < DATA.products.length; i++) {
+      listItems.push({
+        '@type': 'ListItem',
+        'position': i + 1,
+        'name': DATA.products[i].en.name,
+        'url': baseUrl + '/products/details/?id=' + DATA.products[i].id
+      });
+    }
+    SP.injectJsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      'name': 'Egyptian Agricultural Products',
+      'numberOfItems': DATA.products.length,
+      'itemListElement': listItems
+    }, 'schema-itemlist');
   }
 
   /* ══════════════════════════════════════════

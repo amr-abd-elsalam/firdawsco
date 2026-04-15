@@ -31,10 +31,24 @@ var NotFoundApp = (function () {
   }
 
   /* ══════════════════════════════════════════
+     Builder: SEO Injection
+  ══════════════════════════════════════════ */
+  function injectSEO() {
+    var lang = U.getLang();
+    SP.injectBaseSEO({
+      pageTitle: U.t(META.notFound.title, lang) + ' \u2014 ' + U.t(DATA.BRAND_NAME, lang),
+      pageDesc: U.t(META.notFound.text, lang),
+      pageUrl: 'https://' + DATA.DOMAIN + '/404.html',
+      pageImage: 'https://' + DATA.DOMAIN + META.ogImage
+    });
+  }
+
+  /* ══════════════════════════════════════════
      Refresh Page (called by switchLanguage)
   ══════════════════════════════════════════ */
   function refreshPage(lang) {
     buildContent();
+    injectSEO();
   }
 
   /* ══════════════════════════════════════════
@@ -52,6 +66,7 @@ var NotFoundApp = (function () {
 
     /* Build page content */
     buildContent();
+    injectSEO();
   }
 
   /* ── DOMContentLoaded ── */

@@ -1200,6 +1200,7 @@ var COMPANY_DATA = (function () {
       all:       { en: 'All Products',         ar: 'كل المنتجات' },
       inSeason:  { en: 'In Season',            ar: 'في الموسم' },
       offSeason: { en: 'Off Season',           ar: 'خارج الموسم' },
+      featuredTitle: { en: 'Featured Products',  ar: 'منتجات مميزة' },
       productsLabel: { en: 'products', ar: 'منتج' },
       viewDetails: { en: 'View Details', ar: 'عرض التفاصيل' },
       noResults: { en: 'No products match this filter.', ar: 'لا توجد منتجات تطابق هذا الفلتر.' }
