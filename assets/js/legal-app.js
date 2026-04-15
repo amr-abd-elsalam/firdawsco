@@ -354,16 +354,20 @@ var LegalApp = (function () {
       navMatchFn: function (href) { return false; }
     });
 
-    /* Build all page sections */
+    /* Build above-the-fold sections immediately */
     buildBreadcrumb();
     buildPageHeader();
-    buildTocNav();
-    buildIntroNote();
-    buildSections();
     injectSEO();
 
-    /* Wire TOC smooth scroll — once only */
-    SP.initTocScroll('.fw-legal-toc');
+    /* Defer below-the-fold sections to unblock first paint */
+    requestAnimationFrame(function () {
+      buildTocNav();
+      buildIntroNote();
+      buildSections();
+
+      /* Wire TOC smooth scroll — after sections exist */
+      SP.initTocScroll('.fw-legal-toc');
+    });
   }
 
   /* ── DOMContentLoaded ── */

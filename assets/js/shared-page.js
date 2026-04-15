@@ -487,6 +487,21 @@ var SharedPage = (function () {
   function initPage(config) {
     config = config || {};
 
+    /* ── Load Bootstrap Icons CSS (non-render-blocking) ── */
+    (function () {
+      var bsLink = document.getElementById('bootstrap-css');
+      var depth = '';
+      if (bsLink) {
+        var bsHref = bsLink.getAttribute('href') || '';
+        var idx = bsHref.indexOf('assets/');
+        if (idx > 0) depth = bsHref.substring(0, idx);
+      }
+      var iconsLink = document.createElement('link');
+      iconsLink.rel = 'stylesheet';
+      iconsLink.href = depth + 'assets/vendor/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css';
+      document.head.appendChild(iconsLink);
+    })();
+
     /* Set footer category base path (varies by page depth) */
     if (config.footerCategoryBase) {
       _footerCategoryBase = config.footerCategoryBase;

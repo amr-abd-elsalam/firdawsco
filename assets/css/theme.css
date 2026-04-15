@@ -1414,6 +1414,25 @@ a:hover {
   color: var(--fw-primary-hover);
 }
 
+/* Contact form container — reserve space to prevent CLS */
+.fw-contact-form {
+  min-height: 28rem;
+}
+
+.fw-contact-info {
+  min-height: 18rem;
+}
+
+@media (max-width: 767.98px) {
+  .fw-contact-form {
+    min-height: 24rem;
+  }
+
+  .fw-contact-info {
+    min-height: 14rem;
+  }
+}
+
 /* ═══════════════════════════════════════════
    A.32 — Responsive Additions (Phase 4)
    ═══════════════════════════════════════════ */

@@ -613,23 +613,27 @@ var HomeApp = (function () {
       }
     });
 
-    /* Build all page sections */
+    /* Build above-the-fold sections immediately */
     buildHero();
     buildStatsBar();
-    buildAboutPreview();
-    buildCategoriesGrid();
-    buildFeaturedProducts();
-    buildSeasonCalendar();
-    buildSeasonCalendarMobile();
-    buildCertifications();
-    buildCTA();
-    buildFAQ();
 
     /* Inject FAQ JSON-LD */
     SP.injectFaqSchema();
 
     /* Ensure page-specific SEO is applied on initial load */
     injectSEO();
+
+    /* Defer below-the-fold sections to unblock first paint */
+    requestAnimationFrame(function () {
+      buildAboutPreview();
+      buildCategoriesGrid();
+      buildFeaturedProducts();
+      buildSeasonCalendar();
+      buildSeasonCalendarMobile();
+      buildCertifications();
+      buildCTA();
+      buildFAQ();
+    });
   }
 
   /* ── DOMContentLoaded ── */

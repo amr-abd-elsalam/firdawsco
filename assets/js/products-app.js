@@ -355,13 +355,17 @@ var ProductsApp = (function () {
       }
     });
 
-    /* Build all page sections */
+    /* Build above-the-fold sections immediately */
     buildBreadcrumb();
     buildPageHeader();
-    buildFilterBar();
-    buildProductsGrid();
-    buildCTA();
     injectSEO();
+
+    /* Defer below-the-fold sections to unblock first paint */
+    requestAnimationFrame(function () {
+      buildFilterBar();
+      buildProductsGrid();
+      buildCTA();
+    });
   }
 
   /* ── DOMContentLoaded ── */
