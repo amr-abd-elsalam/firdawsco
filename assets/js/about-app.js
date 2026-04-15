@@ -174,6 +174,7 @@ var AboutApp = (function () {
           alt:       certData.name,
           className: 'fw-cert-logo',
           loading:   'lazy',
+          decoding:  'async',
           width:     '80',
           height:    '60'
         })

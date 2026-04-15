@@ -128,6 +128,7 @@ var HomeApp = (function () {
           src:     U.sanitizeUrl(cert.logo),
           alt:     certName,
           loading: 'lazy',
+          decoding: 'async',
           width:   '80',
           height:  '40'
         })
@@ -171,6 +172,7 @@ var HomeApp = (function () {
             src: U.sanitizeUrl(cat.image),
             alt: catData.name,
             loading: 'lazy',
+            decoding: 'async',
             width: '600',
             height: '400'
           })
@@ -240,7 +242,7 @@ var HomeApp = (function () {
 
       var col = U.el('div', { className: 'col-12 col-sm-6 col-md-4 col-lg-3' });
 
-      var card = U.el('article', { className: 'fw-product-card' });
+      var card = U.el('article', { className: 'fw-product-card', aria: { label: prodData.name } });
 
       /* Image */
       card.appendChild(
@@ -248,6 +250,7 @@ var HomeApp = (function () {
           src:     U.sanitizeUrl(product.image),
           alt:     prodData.name,
           loading: 'lazy',
+          decoding: 'async',
           width:   '400',
           height:  '300'
         })
@@ -393,7 +396,7 @@ var HomeApp = (function () {
     DATA.products.forEach(function (product) {
       var prodData = product[lang] || product.en;
 
-      var item = U.el('div', { className: 'fw-cal-m-item' });
+      var item = U.el('div', { className: 'fw-cal-m-item', role: 'img', aria: { label: prodData.name + ': ' + U.seasonText(product, lang) } });
 
       /* Product name */
       item.appendChild(
@@ -461,6 +464,7 @@ var HomeApp = (function () {
           alt:       certData.name,
           className: 'fw-cert-logo',
           loading:   'lazy',
+          decoding:  'async',
           width:     '80',
           height:    '60'
         })

@@ -267,7 +267,7 @@ var ProductDetailsApp = (function () {
     var frag = document.createDocumentFragment();
     for (var i = 0; i < rows.length; i++) {
       var tr = U.el('tr', null, [
-        U.el('th', { textContent: U.t(rows[i].label, lang) }),
+        U.el('th', { scope: 'row', textContent: U.t(rows[i].label, lang) }),
         U.el('td', { textContent: rows[i].value || '' })
       ]);
       frag.appendChild(tr);
@@ -330,6 +330,7 @@ var ProductDetailsApp = (function () {
           alt:       certData.name,
           className: 'fw-cert-logo',
           loading:   'lazy',
+          decoding:  'async',
           width:     '80',
           height:    '60'
         })
@@ -374,7 +375,7 @@ var ProductDetailsApp = (function () {
 
       var col = U.el('div', { className: 'col-12 col-sm-6 col-md-4 col-lg-3' });
 
-      var card = U.el('article', { className: 'fw-product-card' });
+      var card = U.el('article', { className: 'fw-product-card', aria: { label: relData.name } });
 
       /* Image */
       card.appendChild(
@@ -382,6 +383,7 @@ var ProductDetailsApp = (function () {
           src:     U.sanitizeUrl(fixImgPath(rel.image)),
           alt:     relData.name,
           loading: 'lazy',
+          decoding: 'async',
           width:   '400',
           height:  '300'
         })

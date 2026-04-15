@@ -117,7 +117,8 @@ var ProductsApp = (function () {
     var allBtn = U.el('button', {
       type: 'button',
       className: 'fw-filter-btn' + (_currentCategory === 'all' ? ' active' : ''),
-      dataset: { category: 'all' }
+      dataset: { category: 'all' },
+      aria: { pressed: String(_currentCategory === 'all') }
     }, [
       U.t(META.productsSection.all, lang),
       U.el('span', {
@@ -134,7 +135,8 @@ var ProductsApp = (function () {
       var btn = U.el('button', {
         type: 'button',
         className: 'fw-filter-btn' + (_currentCategory === cat.id ? ' active' : ''),
-        dataset: { category: cat.id }
+        dataset: { category: cat.id },
+        aria: { pressed: String(_currentCategory === cat.id) }
       }, [
         catName,
         U.el('span', {
@@ -172,7 +174,7 @@ var ProductsApp = (function () {
 
     var col = U.el('div', { className: 'col-12 col-sm-6 col-md-4 col-lg-3' });
 
-    var card = U.el('article', { className: 'fw-product-card' });
+    var card = U.el('article', { className: 'fw-product-card', aria: { label: prodData.name } });
 
     /* Image */
     card.appendChild(
@@ -180,6 +182,7 @@ var ProductsApp = (function () {
         src:     U.sanitizeUrl(fixImgPath(product.image)),
         alt:     prodData.name,
         loading: 'lazy',
+        decoding: 'async',
         width:   '400',
         height:  '300'
       })
