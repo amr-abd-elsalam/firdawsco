@@ -263,10 +263,10 @@ a:hover {
   align-items: center;
   gap: 0.5rem;
   padding: 0.625rem 1.5rem;
-  background-color: #25d366;
+  background-color: #1a8c44;
   color: var(--fw-white);
   font-weight: 600;
-  border: 2px solid #25d366;
+  border: 2px solid #1a8c44;
   border-radius: var(--fw-radius);
   cursor: pointer;
   transition: background-color 0.2s, box-shadow 0.2s;
@@ -274,8 +274,8 @@ a:hover {
 
 .fw-btn-whatsapp:hover,
 .fw-btn-whatsapp:focus {
-  background-color: #1da851;
-  border-color: #1da851;
+  background-color: #157a3a;
+  border-color: #157a3a;
   color: var(--fw-white);
   box-shadow: var(--fw-shadow-md);
 }
@@ -828,7 +828,7 @@ a:hover {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background-color: #25d366;
+  background-color: #1a8c44;
   color: var(--fw-white);
   font-size: 1.4rem;
   text-decoration: none;
@@ -838,7 +838,7 @@ a:hover {
 
 .fw-whatsapp-float:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 6px 20px rgba(26, 140, 68, 0.4);
   color: var(--fw-white);
 }
 
@@ -1064,8 +1064,8 @@ a:hover {
 }
 
 .fw-filter-btn.active {
-  background-color: var(--fw-primary);
-  border-color: var(--fw-primary);
+  background-color: var(--fw-green-800);
+  border-color: var(--fw-green-800);
   color: var(--fw-white);
 }
 
@@ -1102,7 +1102,7 @@ a:hover {
   margin-bottom: 1.5rem;
 }
 
-.fw-product-varieties h3 {
+.fw-product-varieties h2 {
   font-size: 1rem;
   font-weight: 700;
   color: var(--fw-gray-800);
@@ -1173,7 +1173,7 @@ a:hover {
   background-color: var(--fw-white);
 }
 
-.fw-packaging-card h3 {
+.fw-packaging-card h2 {
   font-size: 1rem;
   font-weight: 700;
   color: var(--fw-gray-800);
@@ -1563,7 +1563,7 @@ a:hover {
 .fw-legal-section-num {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--fw-primary);
+  color: var(--fw-green-800);
   min-width: 2rem;
 }
 
@@ -1608,13 +1608,13 @@ a:hover {
 }
 
 .fw-legal-contact-row a {
-  color: var(--fw-primary);
+  color: var(--fw-green-800);
   text-decoration: none;
   font-weight: 500;
 }
 
 .fw-legal-contact-row a:hover {
-  color: var(--fw-primary-hover);
+  color: var(--fw-green-900);
 }
 
 /* ═══════════════════════════════════════════
@@ -1760,8 +1760,8 @@ a:hover {
 
 .fw-hero .fw-btn-whatsapp:hover,
 .fw-hero .fw-btn-whatsapp:focus {
-  background-color: #25d366;
-  border-color: #25d366;
+  background-color: #1a8c44;
+  border-color: #1a8c44;
   color: var(--fw-white);
 }
 
@@ -2203,8 +2203,8 @@ a:hover {
 
 /* Active filter button — count badge inverted */
 .fw-filter-btn.active .fw-filter-count {
-  background-color: rgba(255, 255, 255, 0.3);
-  color: var(--fw-white);
+  background-color: var(--fw-green-900);
+  color: var(--fw-green-100);
 }
 
 /* ═══════════════════════════════════════════
